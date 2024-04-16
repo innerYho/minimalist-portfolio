@@ -1,0 +1,64 @@
+---
+import { basics } from "@cv";
+import Section from "@/components/Section.astro";
+import Mail from "@/icons/Mail.astro";
+import Phone from "@/icons/Phone.astro";
+import GitHub from "@/icons/GitHub.astro";
+import LinkedIn from "@/icons/LinkedIn.astro";
+import X from "@/icons/X.astro";
+const { name, label, image, email, location, phone } = basics;
+const { city, region } = location;
+
+const SOCIAL_ICONS: Record<string, any> = {
+    GitHub,
+    LinkedIn,
+    X,
+};
+---
+
+<Section>
+    <div class="container">
+        <div class="info">
+            <h1>{name}</h1>
+            <h2>{label}</h2>
+            <span>
+                {city} - {region}
+            </span>
+            <footer>
+                {
+                    email && (
+                        <a
+                            href={`mailto:${email}`}
+                            title={`Enviar un correo electrónico a ${name} al correo ${email}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <Mail />
+                        </a>
+                    )
+                }{
+                    phone && (
+                        <a
+                            href={`tel:${phone}`}
+                            title={`Llamar a ${name} al Número ${email}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <Phone />
+                        </a>
+                    )
+                }
+                <!-- {
+                    profiles.map(({network, url, username}) ={
+                        const
+                    })
+                } -->
+            </footer>
+        </div>
+        <figure>
+            <img src={image} alt="name" />
+        </figure>
+    </div>
+</Section>
+
+<style></style>
