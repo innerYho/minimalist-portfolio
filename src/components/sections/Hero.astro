@@ -6,7 +6,8 @@ import Phone from "@/icons/Phone.astro";
 import GitHub from "@/icons/GitHub.astro";
 import LinkedIn from "@/icons/LinkedIn.astro";
 import X from "@/icons/X.astro";
-const { name, label, image, email, location, phone } = basics;
+import WorldMap from "@/icons/WorldMap.astro";
+const { name, label, image, email, location, profiles, phone } = basics;
 const { city, region } = location;
 
 const SOCIAL_ICONS: Record<string, any> = {
@@ -22,9 +23,26 @@ const SOCIAL_ICONS: Record<string, any> = {
             <h1>{name}</h1>
             <h2>{label}</h2>
             <span>
+                <WorldMap />
                 {city} - {region}
             </span>
             <footer>
+                {
+                    profiles.map(({ network, url, username }) => {
+                        const Icon = SOCIAL_ICONS[network];
+                        return (
+                            <a
+                                href={url}
+                                title={`Visita el perfil de ${name} en ${network}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Icon />
+                            </a>
+                        );
+                    })
+                }
+
                 {
                     email && (
                         <a
@@ -48,11 +66,6 @@ const SOCIAL_ICONS: Record<string, any> = {
                         </a>
                     )
                 }
-                <!-- {
-                    profiles.map(({network, url, username}) ={
-                        const
-                    })
-                } -->
             </footer>
         </div>
         <figure>
@@ -61,4 +74,62 @@ const SOCIAL_ICONS: Record<string, any> = {
     </div>
 </Section>
 
-<style></style>
+<style>
+    .container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+    .info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding-right: 32px;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        color: #444;
+        font-weight: 500;
+        font-size: 1.1rem;
+        text-wrap: balance;
+    }
+    img {
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        width: 128px;
+        border-radius: 6px;
+    }
+    span {
+        color: #676;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        font-size: 0.85rem;
+        letter-spacing: -0.05rem;
+    }
+    footer {
+        display: flex;
+        gap: 4px;
+        margin-top: 8px;
+    }
+    footer a {
+        color: #777;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #fff;
+        padding: 4px;
+        height: 32px;
+        width: 32px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+    }
+    footer a:hover {
+        background: #ccc;
+        border: 1px solid #aaa;
+    }
+</style>

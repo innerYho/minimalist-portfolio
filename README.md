@@ -23,4 +23,4 @@ touch ./src/components/{Hero,About,Header,EducationsExperience,Skills,Projects}.
 
 Cómo Crear un Portfolio Web Minimalista con Astro 4, HTML, CSS
 https://www.youtube.com/watch?v=Zwh92LTB-Bk
-13:42
+53:13
