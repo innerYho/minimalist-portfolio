@@ -1,10 +1,32 @@
 ---
 import Section from "@/components/Section.astro";
+import { education } from "@cv";
 ---
 
 <!-- <h2>Education</h2> -->
-<Section title="Education">
-    <div class="container"></div>
+<Section title="Educación">
+    <ul>
+        {
+            education.map(
+                ({
+                    institution,
+                    area,
+                    studyType,
+                    startDate,
+                    endDate,
+                    courses,
+                }) => {
+                    return (
+                        <li>
+                            <article>
+                                <h3>{institution}</h3>
+                            </article>
+                        </li>
+                    );
+                },
+            )
+        }
+    </ul>
 </Section>
 <!-- igual que la experiencia -->
 <style></style>

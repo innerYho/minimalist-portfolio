@@ -1,10 +1,111 @@
 ---
 import Section from "@/components/Section.astro";
+import { projects } from "@cv";
 ---
 
 <!-- <h2>Project</h2> -->
-<h2></h2>
-<Section title="Project">
-    <div class="container"></div>
+<Section title="Proyectos">
+    <ul>
+        {
+            projects.map(
+                ({ url, description, highlights, name, isActive, github }) => {
+                    return (
+                        <li>
+                            <article>
+                                <header>
+                                    <h3>
+                                        <a
+                                            href={url}
+                                            target="_blank"
+                                            title={`Ver el proyecto ${name}`}
+                                        >
+                                            {name}
+                                        </a>
+                                        {isActive && <span> &bull;</span>}
+                                        {github && (
+                                            <a
+                                                class="github-code-link"
+                                                href={github}
+                                                target="_blank"
+                                                title={`Ver código fuente del proyecto ${name}`}
+                                            />
+                                        )}
+                                    </h3>
+                                    <p>{description}</p>
+                                </header>
+                                <footer>
+                                    <ul>
+                                        {highlights.map((highlight) => {
+                                            return <span>{highlight}</span>;
+                                        })}
+                                    </ul>
+                                </footer>
+                            </article>
+                        </li>
+                    );
+                },
+            )
+        }
+    </ul>
 </Section>
-<style></style>
+<style>
+    ul {
+        /* Responsive sin media queries */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        /* margin-inline: -16px; */
+    }
+    article {
+        border-radius: 8px;
+        border: 2px solid #cdc;
+        gap: 16px;
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+        height: 100%;
+    }
+    article header {
+        flex: 1;
+    }
+    article a {
+        color: #444;
+    }
+    article a:hover {
+        text-decoration: underline;
+    }
+    article p {
+        font-size: 0.75rem;
+        line-height: 1.2rem;
+        margin-bottom: 4px;
+    }
+    article h3 {
+        margin-bottom: 4px;
+    }
+    article h3 span {
+        color: rgb(0, 188, 64);
+        animation-name: flicker;
+        animation-duration: 3s;
+        animation-timing-function: ease-in;
+        animation-iteration-count: infinite;
+    }
+    footer {
+        /* display: flex; */
+        display: inline-block;
+        flex-wrap: wrap;
+        gap: 4px;
+        font-size: 0.6rem;
+        /* padding-left: 10px; */
+    }
+    footer span {
+        /* display: inline-flex; */
+        text-align: center;
+        border-radius: 6px;
+        background: #acc;
+        color: #444;
+        font-size: 0.6rem;
+        font-weight: 500;
+        padding: 0.2rem 0.6rem;
+        margin-right: 6%;
+    }
+</style>

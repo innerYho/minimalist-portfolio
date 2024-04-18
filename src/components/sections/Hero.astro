@@ -15,6 +15,10 @@ const SOCIAL_ICONS: Record<string, any> = {
     LinkedIn,
     X,
 };
+
+const linkedInfo = profiles.find(({ network }) => network === "LinkendIn");
+const linkedUrl = linkedInfo?.url;
+const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ");
 ---
 
 <Section>
@@ -27,45 +31,51 @@ const SOCIAL_ICONS: Record<string, any> = {
                 {city} - {region}
             </span>
             <footer>
-                {
-                    profiles.map(({ network, url, username }) => {
-                        const Icon = SOCIAL_ICONS[network];
-                        return (
+                <div class="print">
+                    {printInfo}
+                    <!-- {email} &bull; {linkedUrl} &bull; -->
+                </div>
+                <div class="no-print">
+                    {
+                        profiles.map(({ network, url, username }) => {
+                            const Icon = SOCIAL_ICONS[network];
+                            return (
+                                <a
+                                    href={url}
+                                    title={`Visita el perfil de ${name} en ${network}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <Icon />
+                                </a>
+                            );
+                        })
+                    }
+
+                    {
+                        email && (
                             <a
-                                href={url}
-                                title={`Visita el perfil de ${name} en ${network}`}
+                                href={`mailto:${email}`}
+                                title={`Enviar un correo electrónico a ${name} al correo ${email}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <Icon />
+                                <Mail />
                             </a>
-                        );
-                    })
-                }
-
-                {
-                    email && (
-                        <a
-                            href={`mailto:${email}`}
-                            title={`Enviar un correo electrónico a ${name} al correo ${email}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Mail />
-                        </a>
-                    )
-                }{
-                    phone && (
-                        <a
-                            href={`tel:${phone}`}
-                            title={`Llamar a ${name} al Número ${email}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Phone />
-                        </a>
-                    )
-                }
+                        )
+                    }{
+                        phone && (
+                            <a
+                                href={`tel:${phone}`}
+                                title={`Llamar a ${name} al Número ${email}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Phone />
+                            </a>
+                        )
+                    }
+                </div>
             </footer>
         </div>
         <figure>
@@ -112,6 +122,8 @@ const SOCIAL_ICONS: Record<string, any> = {
         letter-spacing: -0.05rem;
     }
     footer {
+        font-size: 0.65rem;
+        color: $555;
         display: flex;
         gap: 4px;
         margin-top: 8px;

@@ -18,9 +18,17 @@ npm install touch-cli -g
     Se crean todos los archivos con la estensión.astro en win no me funciono con mkdir
 touch ./src/components/{Hero,About,Header,EducationsExperience,Skills,Projects}.astro
 
+Dehabilitar la barra de inspección de astro
+npx astro preferences disable devToolbar
 
+pnpm i ninja-keys
+
+emoji
+ctrl + p >emoji: (lo que necesites)
 
 
 Cómo Crear un Portfolio Web Minimalista con Astro 4, HTML, CSS
 https://www.youtube.com/watch?v=Zwh92LTB-Bk
-53:13
+1:41:00
+
+
