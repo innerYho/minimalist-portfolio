@@ -15,11 +15,29 @@ import { education } from "@cv";
                     startDate,
                     endDate,
                     courses,
+                    url,
+                    isActive,
                 }) => {
                     return (
                         <li>
                             <article>
-                                <h3>{institution}</h3>
+                                <header>
+                                    <h3>
+                                        <a href={url} target="_blank">
+                                            {institution}
+                                        </a>
+                                        {isActive && <span> &bull;</span>}
+                                    </h3>
+                                    <h5>{area}</h5>
+                                    <p>
+                                        {startDate} - {endDate}
+                                    </p>
+                                </header>
+                                <footer>
+                                    <a href={url} target="_blank">
+                                        {url}
+                                    </a>
+                                </footer>
                             </article>
                         </li>
                     );
@@ -29,4 +47,40 @@ import { education } from "@cv";
     </ul>
 </Section>
 <!-- igual que la experiencia -->
-<style></style>
+<style>
+    ul {
+        /* Responsive sin media queries */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        /* margin-inline: -16px; */
+    }
+    article {
+        border-radius: 8px;
+        border: 2px solid #cdc;
+        gap: 16px;
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+        height: 100%;
+    }
+    article a {
+        color: #444;
+    }
+    article a:hover {
+        text-decoration: underline;
+    }
+    article h3 span {
+        color: rgb(0, 188, 64);
+        animation-name: flicker;
+        animation-duration: 3s;
+        animation-timing-function: ease-in;
+        animation-iteration-count: infinite;
+    }
+    footer {
+        display: inline-block;
+        flex-wrap: wrap;
+        gap: 4px;
+        font-size: 0.6rem;
+    }
+</style>

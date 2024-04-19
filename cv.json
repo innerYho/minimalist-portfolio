@@ -9,7 +9,7 @@
         "summary": "Tecnólogo en análisis y desarrollo de sistemas informático en el SENA, me entuentro estudiando la ingeniería de sistemas en la UNAD. Vivo en Bogotá.",
         "location": {
             "address": "",
-            "postalCode": "000000",
+            "postalCode": "110611",
             "city": "Bogotá D.C.",
             "countryCode": "Col",
             "region": "Colombia"
@@ -17,50 +17,50 @@
         "profiles": [
             {
                 "network": "LinkedIn",
-                "username": "midudev",
-                "url": "https://linkedin.com/in/midudev"
+                "username": "Yhoiner",
+                "url": "https://www.linkedin.com/in/yhoiner-morales-rios-a1a633192/"
             },
             {
                 "network": "X",
                 "username": "midudev",
-                "url": "https://x.com/midudev"
+                "url": "https://x.com/InnerYho"
             },
             {
                 "network": "GitHub",
-                "username": "midudev",
-                "url": "https://github.com/midudev"
+                "username": "innerYho",
+                "url": "https://github.com/innerYho"
             }
         ]
     },
     "work": [
         {
-            "name": "midudev",
-            "position": "Divulgador sobre Programación Web",
+            "name": "Asiste Ingeniería SAS",
+            "position": "Fullstack Developer",
             "url": "https://twitch.tv/midudev",
-            "startDate": "2021-01-01",
+            "startDate": "2021-04-01",
+            "endDate": "2022-11-020",
+            "summary": "Derarrollo fullstack en deversos proyectos en React y PHP.",
+            "highlights": [
+                "Started the company"
+            ]
+        },
+        {
+            "name": "papelerialj",
+            "position": "Fullstack Developer & soporte red - mantenimiento",
+            "startDate": "2017-03-01",
             "endDate": null,
-            "summary": "Streamer de programación más visto en Español en Twitch. +1 millón de seguidores entre todas mis redes sociales. Reconocido por Google, Microsoft y GitHub por mi impacto en la comunidad de desarrolladores.",
+            "summary": "Desarrollé una plataforma y mantenimiento de equipos informáticos.",
             "highlights": [
                 "Started the company"
             ]
         },
         {
-            "name": "Adevinta",
-            "position": "Lead Frontend Architect",
+            "name": "ComWare S.A.",
+            "position": "FrontEnd Developer",
             "url": "https://twitch.tv/midudev",
-            "startDate": "2016-06-01",
-            "endDate": "2022-09-01",
-            "summary": "Lideré una convergencia técnica entre diferentes productos y migramos una arquitectura monolítica a otra más flexible y optimizada. Fomenté buenas prácticas y mejoras en la cultura de rendimiento, además de la entrega rápida de valor a los usuarios.",
-            "highlights": [
-                "Started the company"
-            ]
-        },
-        {
-            "name": "Hubii",
-            "position": "Senior FrontEnd Developer",
-            "startDate": "2011-03-01",
-            "endDate": "2016-05-01",
-            "summary": "Desarrollé una plataforma de noticias geolocalizadas y una API para consumir la información. Escalé los servicios para soportar la carga de más de cientos de miles de peticiones al día. Recorté los tiempos de entrega y despliegues a producción a la mitad. Colaboré con Mozilla y Telefónica para desarrollar la primera app para televisores con FirefoxOS.",
+            "startDate": "2019-01-01",
+            "endDate": "2019-07-01",
+            "summary": "Streamer de programación más visto en Español en Twitch. +1 millón de seguidores entre todas mis redes sociales. Reconocido por Google, Microsoft y GitHub por mi impacto en la comunidad de desarrolladores.",
             "highlights": [
                 "Started the company"
             ]
@@ -81,12 +81,50 @@
     ],
     "education": [
         {
-            "institution": "Universitat Oberta de Catalunya",
-            "url": "https://www.uoc.edu/portal/es/index.html",
-            "area": "Ingeniero de Software",
+            "institution": "UNAD • Universidad Nacional Abierta y a Distancia",
+            "url": "https://estudios.unad.edu.co/plan-de-estudios-ingenieria-de-sistemas",
+            "area": "Ingeniería de sistemas",
             "studyType": "Bachelor",
-            "startDate": "2003-01-01",
-            "endDate": "2009-01-01",
+            "startDate": "2023-08-21",
+            "endDate": "2019-11-15",
+            "score": "4.0",
+            "courses": [
+                "DB1101 - Basic SQL"
+            ],
+            "isActive": true
+        },
+        {
+            "institution": "SENA - Servicio Nacional de aprendizaje",
+            "url": "https://senacertificados.co/analisis-desarrollo-de-sistemas-de-informacion/",
+            "area": "Tecnología ADSI • análisis y desarrollo de sistemas informáticos",
+            "studyType": "Bachelor",
+            "startDate": "2017-01-21",
+            "endDate": "2019-11-15",
+            "score": "4.0",
+            "courses": [
+                "DB1101 - Basic SQL"
+            ]
+        },
+        {
+            "institution": "COLNODO - Coursera",
+            "url": "https://estudios.unad.edu.co/plan-de-estudios-ingenieria-de-sistemas",
+            "area": "Diseño de Experiencia de Usuario UX de Google",
+            "studyType": "Bachelor",
+            "startDate": "2023-07-21",
+            "endDate": "2023-04-28",
+            "score": "4.0",
+            "courses": [
+                "DB1101 - Basic SQL"
+            ],
+            "isActive": true
+        },
+        {
+            "institution": "Talento digital - Ministerio de tecnología",
+            "url": "https://talentodigital.mintic.gov.co/734/w3-channel.html",
+            "area": "Machine learning & Big data science",
+            "studyType": "Bachelor",
+            "startDate": "2017-01-21",
+            "endDate": "2020-07-15",
             "score": "4.0",
             "courses": [
                 "DB1101 - Basic SQL"
@@ -254,66 +292,35 @@
     ],
     "projects": [
         {
-            "name": "mars.codes",
+            "name": "La velada",
             "isActive": true,
-            "description": "Historia interactiva con retos de programación para viajar a Marte",
+            "description": "Proyecto para aprender sobre el framework Astro por medio de Midulive",
             "highlights": [
-                "Elige tu propia aventura",
+                "Astro, TaildWind",
                 "En desarrollo"
             ],
-            "url": "https://mars.codes"
+            "url": "https://github.com/innerYho/la-velada-midu"
         },
         {
-            "name": "AdventJS",
+            "name": "ShortCuts",
             "isActive": true,
-            "description": "Retos de programación en JavaScript para cada día de diciembre hasta Navidad",
+            "description": "Atajos, descripciones de componentes y guías de uso de programación.",
             "highlights": [
-                "+1 millón de visitas",
-                "Multidioma",
-                "JavaScript & TypeScript"
+                "Multilenguajes",
+                "diccionario y atajos"
             ],
-            "url": "https://adventjs.dev"
+            "url": "https://github.com/innerYho/ShortCuts"
         },
         {
-            "name": "Codember",
+            "name": "minimalist-portfolio",
             "isActive": true,
-            "description": "Juego interactivo de programación con retos y secretos",
+            "description": "Proyecto del presente CV",
             "highlights": [
-                "+2000 usuarios activos",
-                "Retos para cualquier lenguaje"
+                "Astro, JS",
+                "Portafolio - CV"
             ],
-            "url": "https://codember.dev"
-        },
-        {
-            "name": "codi.link",
-            "isActive": true,
-            "description": "Playground de código HTML, CSS y JavaScript para compartir",
-            "highlights": [
-                "100k visitas al mes",
-                "Desarrollado por la comunidad"
-            ],
-            "url": "https://codi.link",
-            "github": "https://github.com/midudev/codi.link"
-        },
-        {
-            "name": "Pruebas Técnicas",
-            "isActive": true,
-            "description": "Lista de pruebas técnicas de empresas para practicar programación",
-            "highlights": [
-                "100% gratuito",
-                "+500 soluciones de la comunidad"
-            ],
-            "url": "https://pruebastecnicas.com",
-            "github": "https://github.com/midudev/pruebas-tecnicas"
-        },
-        {
-            "name": "miduConf",
-            "description": "Conferencia de programación en streaming para la comunidad hispanohablante con charlas top",
-            "highlights": [
-                "+15k tickets repartidos",
-                "+50k espectadores en directo"
-            ],
-            "url": "https://miduconf.com"
+            "url": "https://github.com/innerYho/minimalist-portfolio",
+            "github": "https://github.com/innerYho/minimalist-portfolio"
         }
     ]
 }

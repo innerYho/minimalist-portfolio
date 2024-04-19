@@ -59,7 +59,7 @@ const profilesInfo = profiles.map(({ network, url }) => {
 });
 ---
 
-<footer id="normal-footer" class="no-print">
+<footer id="normal-footer" class="no-print footerAlert">
     Pulsar <kbd>ctrl</kbd> + <kbd>k</kbd> para abrir la paleta de comandos.
 </footer>
 
@@ -103,35 +103,52 @@ const profilesInfo = profiles.map(({ network, url }) => {
                     window.print();
                 },
             },
+            {
+                id: "isActive",
+                title: "  Activo || en curso",
+                icon: `<a style="margin: 8px; color: rgb(0, 188, 64);">&bull;  </a>`,
+            },
             ...data,
         ];
     }
 
-    const footerButton = document.getElementById("footer-button");
-    footerButton?.addEventListener("click", () => {
-        var event = new KeyboardEvent("keydown", {
-            key: "K",
-            code: "KeyK",
-            keyCode: 75,
-            which: 75,
-            ctrlKey: true,
-            altKey: false,
-            shiftKey: false,
-            metaKey: false,
-        });
+    // const parag = document.querySelectorAll(".footerAlert");
+    // document.addEventListener("scroll", function () {
+    //     parag.forEach((par) => {
+    //         if (isInView(par)) {
+    //             par.classList.add("footerAlert--visible");
+    //         }
+    //     });
+    // });
 
-        document.dispatchEvent(event);
-    });
+    // function isInView(element: Element) {
+    //     const rect = element.getBoundingClientRect();
+    //     return (
+    //         rect.bottom > 0 &&
+    //         rect.top <
+    //             (window.innerHeight - 20 ||
+    //                 document.documentElement.clientHeight - 50)
+    //     );
+    // }
 </script>
 <style>
-    @keyframes fadeIn {
+    /* .footerAlert {
+        margin: 1rem 0;
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    .footerAlert--visible {
+        transform: translateY(0);
+        opacity: 1;
+    } */
+    /* @keyframes fadeIn {
         from {
             opacity: 0;
         }
         to {
             opacity: 1;
         }
-    }
+    } */
     @media print {
         ninja-keys {
             display: none;
@@ -144,14 +161,15 @@ const profilesInfo = profiles.map(({ network, url }) => {
     } */
     footer {
         background: #ccf;
-        border-top: 2px solid #fdf;
+        border: 2px solid #fdf;
         position: fixed;
         bottom: 0px;
         width: 100%;
         padding-block: 16px;
         text-align: center;
         font-size: 0.85rem;
-
+        margin: 0.6rem 0;
+        opacity: 0.6;
         /* scroll vertical */
         view-timeline-name: --revealing;
         view-timeline-axis: block;
