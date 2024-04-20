@@ -292,6 +292,34 @@
     ],
     "projects": [
         {
+            "position": 0,
+            "name": "The best option",
+            "isActive": true,
+            "description": "Tienda de libros virtuales",
+            "highlights": [
+                "FIgma",
+                "Google UX",
+                "En desarrollo"
+            ],
+            "preview": true,
+            "preview_url": "indexProjects",
+            "url": "https://github.com/innerYho/la-velada-midu"
+        },
+        {
+            "position": 1,
+            "name": "Car&care",
+            "isActive": true,
+            "description": "Vigilancia vehicular",
+            "highlights": [
+                "FIgma",
+                "Google UX",
+                "En desarrollo"
+            ],
+            "preview": true,
+            "preview_url": "indexProjects",
+            "url": "https://github.com/innerYho/la-velada-midu"
+        },
+        {
             "name": "La velada",
             "isActive": true,
             "description": "Proyecto para aprender sobre el framework Astro por medio de Midulive",
