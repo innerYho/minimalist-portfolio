@@ -1,0 +1,13 @@
+---
+export function getStaticPaths() {
+  return [
+    {params: {dog: 'clifford', id: 1}},
+    {params: {dog: 'rover'}},
+    {params: {dog: 'spot'}},
+  ];
+}
+const { id, dog } = Astro.params;
+---
+<!-- funciona en ssr -->
+
+<div>¡Buen chico, {dog}! {id}</div>

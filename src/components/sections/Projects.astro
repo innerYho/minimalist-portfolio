@@ -48,9 +48,13 @@ import { projects } from "@cv";
                                     <ul>
                                         <imput id="a_pos">{position}</imput>
                                         {preview && (
-                                            <button type="button" id="a_btn">
+                                            <a
+                                                type="button"
+                                                id="a_btn"
+                                                href="/projectSections/"
+                                            >
                                                 Ver proceso
-                                            </button>
+                                            </a>
                                         )}
                                         {highlights.map((highlight) => {
                                             return <span>{highlight}</span>;

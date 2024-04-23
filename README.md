@@ -26,6 +26,12 @@ pnpm i ninja-keys
 emoji
 ctrl + p >emoji: (lo que necesites)
 
+Dinamic path
+https://docs.astro.build/es/guides/routing/
+
+
+npx astro add react
+https://docs.astro.build/en/guides/integrations-guide/react/
 
 Cómo Crear un Portfolio Web Minimalista con Astro 4, HTML, CSS
 https://www.youtube.com/watch?v=Zwh92LTB-Bk
