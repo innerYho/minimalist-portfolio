@@ -8,16 +8,7 @@ import { education } from "@cv";
     <ul>
         {
             education.map(
-                ({
-                    institution,
-                    area,
-                    studyType,
-                    startDate,
-                    endDate,
-                    courses,
-                    url,
-                    isActive,
-                }) => {
+                ({ institution, area, startDate, endDate, url, isActive }) => {
                     return (
                         <li>
                             <article>

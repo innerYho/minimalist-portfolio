@@ -5,7 +5,6 @@ interface Props {
 
 const { title } = Astro.props;
 import { projects } from "@cv";
-import type { getEntry } from "astro:content";
 // const positions = projects.map(project => project[Object.keys(project).position[0]]);
 // const positions = projects[0] ? projects[0].name : undefined;
 // const urlParams = new URLSearchParams(window.location.search);
@@ -22,7 +21,6 @@ import type { getEntry } from "astro:content";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<!-- <title>TBO</title> -->
 	</head>
 	<body>
 		{
@@ -32,24 +30,12 @@ import type { getEntry } from "astro:content";
 			// 	)
 			// })
 
-			projects.map(
-				({
-					position,
-					url,
-					description,
-					highlights,
-					name,
-					isActive,
-					preview,
-					preview_url,
-					github,
-				}) => {
-					return (
-						// const myarray = projects.filter((el, i) => (i == 0)).map((element, index)=> {
-						<a href="">{position === 0 ? name : ""}</a>
-					);
-				},
-			)
+			projects.map(({ position, name }) => {
+				return (
+					// const myarray = projects.filter((el, i) => (i == 0)).map((element, index)=> {
+					<a href="">{position === 0 ? name : ""}</a>
+				);
+			})
 		}
 		<slot />
 		<main>
