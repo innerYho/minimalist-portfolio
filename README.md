@@ -35,6 +35,6 @@ https://docs.astro.build/en/guides/integrations-guide/react/
 
 Cómo Crear un Portfolio Web Minimalista con Astro 4, HTML, CSS
 https://www.youtube.com/watch?v=Zwh92LTB-Bk
-1:41:00
+
 
 

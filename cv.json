@@ -292,8 +292,8 @@
     ],
     "projects": [
         {
-            "position": 0,
-            "name": "The best option",
+            "position": 1,
+            "name": "Escritores",
             "isActive": true,
             "description": "Tienda de libros virtuales",
             "highlights": [
@@ -303,11 +303,11 @@
             ],
             "preview": true,
             "preview_url": "indexProjects",
-            "url": "https://github.com/innerYho/la-velada-midu"
+            "url": "https://github.com/innerYho/"
         },
         {
-            "position": 1,
-            "name": "Car&care",
+            "position": 2,
+            "name": "Care & care",
             "isActive": true,
             "description": "Vigilancia vehicular",
             "highlights": [
@@ -317,7 +317,21 @@
             ],
             "preview": true,
             "preview_url": "indexProjects",
-            "url": "https://github.com/innerYho/la-velada-midu"
+            "url": "https://github.com/innerYho/"
+        },
+        {
+            "position": 3,
+            "name": "Ark",
+            "isActive": true,
+            "description": "Pagina para arquitectos y futuros compradores",
+            "highlights": [
+                "FIgma",
+                "Google UX",
+                "En desarrollo"
+            ],
+            "preview": true,
+            "preview_url": "indexProjects",
+            "url": "https://github.com/innerYho/"
         },
         {
             "name": "La velada",

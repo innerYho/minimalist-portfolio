@@ -24,8 +24,9 @@ import { projects } from "@cv";
                         <li>
                             <article>
                                 <header>
-                                    <h3>
+                                    <h3 id="h_center">
                                         <a
+                                            id="pdf"
                                             href={url}
                                             target="_blank"
                                             title={`Ver el proyecto ${name}`}
@@ -33,6 +34,8 @@ import { projects } from "@cv";
                                             {name}
                                         </a>
                                         {isActive && <span> &bull;</span>}
+                                        <label>{position}</label>
+
                                         {github && (
                                             <a
                                                 class="github-code-link"
@@ -46,15 +49,35 @@ import { projects } from "@cv";
                                 </header>
                                 <footer>
                                     <ul>
-                                        <imput id="a_pos">{position}</imput>
-                                        {preview && (
+                                        {position == 1 ? (
                                             <a
                                                 type="button"
                                                 id="a_btn"
-                                                href="/projectSections/"
+                                                href="../../../public/caso_practico_Escritores.pdf"
+                                                download="caso_practico_Escritores"
                                             >
                                                 Ver proceso
                                             </a>
+                                        ) : position == 2 ? (
+                                            <a
+                                                type="button"
+                                                id="a_btn"
+                                                href="../../../public/caso_practico_carcare.pdf"
+                                                download="caso_practico_carcare"
+                                            >
+                                                Ver proceso
+                                            </a>
+                                        ) : position == 3 ? (
+                                            <a
+                                                type="button"
+                                                id="a_btn"
+                                                href="../../../public/caso_practico_ark.pdf"
+                                                download="caso_practico_ark"
+                                            >
+                                                Ver proceso
+                                            </a>
+                                        ) : (
+                                            ""
                                         )}
                                         {highlights.map((highlight) => {
                                             return <span>{highlight}</span>;
@@ -70,61 +93,7 @@ import { projects } from "@cv";
     </ul>
 </Section>
 
-<script>
-    import { redirectToDefaultLocale } from "astro:i18n";
-
-    function onSend(val: string) {
-        alert(val);
-    }
-    // onClick="onSend(postion)"
-
-    // const onSend = (id) => {
-    //     console.log(`id: ${id}`);
-    //     console.log(id);
-    //     let tmpTodos = [...todosArr];
-
-    //     tmpTodos.splice(id, 1);
-
-    //     setTodosArr(tmpTodos);
-    // };
-
-    // const onSend = (event: any, pos: any) => {
-    //     alert(event);
-    //     alert(pos);
-    // };
-    // let arg1 = event.target.getAttribute('data-arg1');
-
-    // function gotoNode(val: any) {
-    //     alert(val);
-    // }
-
-    // href={preview_url}
-
-    // name="gotoNode"
-    // data-arg1={position}
-
-    // onclick="selPos('${position}')"
-
-    // const a_pos = document.getElementById("a_pos");
-    // console.log(a_pos);
-
-    // localStorage.setItem("key_pos", {position})
-    // const form = document.getElementById('form');
-    // form.addEventListener('submit', function(e) {
-    //     e.preventDefault();
-    // const posVal = a_pos.value;
-    // });
-    // const form = document.getElementById;
-    //     window.onload = function() {
-    //    var getInput = prompt(${position});
-    //    localStorage.setItem("storageName",getInput);
-    // }
-    //     var position
-    //     function save_position(pos: any){
-    //      position = pos;
-    //     position = document.getElementById('a_btn');
-    // }
-</script>
+<script></script>
 <style>
     ul {
         /* Responsive sin media queries */
@@ -133,9 +102,14 @@ import { projects } from "@cv";
         gap: 1rem;
         /* margin-inline: -16px; */
     }
+    #h_center {
+        text-align: center;
+    }
     #a_btn {
         font-weight: bold;
         font-size: medium;
+        margin-right: 13px;
+
         position: relative;
         text-align: center;
         border-radius: 6px;
