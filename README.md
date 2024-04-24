@@ -37,4 +37,4 @@ Cómo Crear un Portfolio Web Minimalista con Astro 4, HTML, CSS
 https://www.youtube.com/watch?v=Zwh92LTB-Bk
 
 
-
+npm run build
