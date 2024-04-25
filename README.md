@@ -38,3 +38,10 @@ https://www.youtube.com/watch?v=Zwh92LTB-Bk
 
 
 npm run build
+
+
+https://minimalist-portfolio-neon.vercel.app/public/
+href="../../../public/caso_practico_Escritores.pdf"
+
+
+https://fliphtml5.com
