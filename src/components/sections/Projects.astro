@@ -17,6 +17,7 @@ import { projects } from "@cv";
                     name,
                     isActive,
                     github,
+                    process_url,
                 }) => {
                     return (
                         <li>
@@ -47,41 +48,16 @@ import { projects } from "@cv";
                                 </header>
                                 <footer>
                                     <ul>
-                                        {position == 1 ? (
+                                        {process_url && (
                                             <a
                                                 type="button"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 id="a_btn"
-                                                href="https://online.fliphtml5.com/dbefm/dvxt/"
-                                                download="caso_practico_Escritores"
+                                                href={process_url}
                                             >
                                                 Ver proceso
                                             </a>
-                                        ) : position == 2 ? (
-                                            <a
-                                                type="button"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                id="a_btn"
-                                                href="https://online.fliphtml5.com/dbefm/drwj/"
-                                                download="caso_practico_carcare"
-                                            >
-                                                Ver proceso
-                                            </a>
-                                        ) : position == 3 ? (
-                                            <a
-                                                type="button"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                id="a_btn"
-                                                href="https://online.fliphtml5.com/dbefm/gjjw/"
-                                                download="caso_practico_ark"
-                                            >
-                                                Ver proceso
-                                            </a>
-                                        ) : (
-                                            ""
                                         )}
                                         {highlights.map((highlight) => {
                                             return <span>{highlight}</span>;

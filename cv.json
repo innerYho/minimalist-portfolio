@@ -38,8 +38,8 @@
             "position": "Fullstack Developer",
             "url": "https://asisteing.com/",
             "startDate": "2025-03-20",
-            "endDate": "2022-11-020",
-            "summary": "Derarrollo fullstack en deversos proyectos en React y PHP.",
+            "endDate": null,
+            "summary": "Desarrollo fullstack en diversos proyectos en React y PHP.",
             "highlights": [
                 "Started the company"
             ]
@@ -49,8 +49,8 @@
             "position": "Fullstack Developer",
             "url": "https://asisteing.com/",
             "startDate": "2021-04-01",
-            "endDate": "2022-11-020",
-            "summary": "Derarrollo fullstack en deversos proyectos en React y PHP.",
+            "endDate": "2022-11-20",
+            "summary": "Desarrollo fullstack en diversos proyectos en React y PHP.",
             "highlights": [
                 "Started the company"
             ]
@@ -97,7 +97,7 @@
             "area": "Ingeniería de sistemas",
             "studyType": "Bachelor",
             "startDate": "2023-08-21",
-            "endDate": "2019-11-15",
+            "endDate": "2026-12-15",
             "score": "4.0",
             "courses": [
                 "DB1101 - Basic SQL"
@@ -314,6 +314,7 @@
             ],
             "preview": true,
             "preview_url": "indexProjects",
+            "process_url": "https://online.fliphtml5.com/dbefm/dvxt/",
             "url": "https://github.com/innerYho/"
         },
         {
@@ -328,6 +329,7 @@
             ],
             "preview": true,
             "preview_url": "indexProjects",
+            "process_url": "https://online.fliphtml5.com/dbefm/drwj/",
             "url": "https://github.com/innerYho/"
         },
         {
@@ -342,6 +344,7 @@
             ],
             "preview": true,
             "preview_url": "indexProjects",
+            "process_url": "https://online.fliphtml5.com/dbefm/gjjw/",
             "url": "https://github.com/innerYho/"
         },
         {
