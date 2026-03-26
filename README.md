@@ -15,7 +15,7 @@ pnpm run dev
 
 npm install touch-cli -g
 
-    Se crean todos los archivos con la estensión.astro en win no me funciono con mkdir
+    Se crean todos los archivos con la extensión.astro en win no me funciono con mkdir
 touch ./src/components/{Hero,About,Header,EducationsExperience,Skills,Projects}.astro
 
 Dehabilitar la barra de inspección de astro

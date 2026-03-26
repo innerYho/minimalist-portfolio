@@ -63,18 +63,8 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ");
                                 <Mail />
                             </a>
                         )
-                    }{
-                        phone && (
-                            <a
-                                href={`tel:${phone}`}
-                                title={`Llamar a ${name} al Número ${email}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <Phone />
-                            </a>
-                        )
                     }
+                    
                 </div>
             </footer>
         </div>

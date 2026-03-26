@@ -22,7 +22,7 @@
             },
             {
                 "network": "X",
-                "username": "midudev",
+                "username": "InnerYho",
                 "url": "https://x.com/InnerYho"
             },
             {
@@ -34,9 +34,20 @@
     },
     "work": [
         {
-            "name": "Asiste Ingeniería SAS",
+            "name": "Asiste Ing. S.A.S.",
             "position": "Fullstack Developer",
-            "url": "https://twitch.tv/midudev",
+            "url": "https://asisteing.com/",
+            "startDate": "2025-03-20",
+            "endDate": "2022-11-020",
+            "summary": "Derarrollo fullstack en deversos proyectos en React y PHP.",
+            "highlights": [
+                "Started the company"
+            ]
+        },
+        {
+            "name": "Asiste Ingeniería S.A.S.",
+            "position": "Fullstack Developer",
+            "url": "https://asisteing.com/",
             "startDate": "2021-04-01",
             "endDate": "2022-11-020",
             "summary": "Derarrollo fullstack en deversos proyectos en React y PHP.",
@@ -48,7 +59,7 @@
             "name": "papelerialj",
             "position": "Fullstack Developer & soporte red - mantenimiento",
             "startDate": "2017-03-01",
-            "endDate": null,
+            "endDate": "2025-07-20",
             "summary": "Desarrollé una plataforma y mantenimiento de equipos informáticos.",
             "highlights": [
                 "Started the company"
