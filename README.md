@@ -9,6 +9,13 @@ git remote add origin git@github.com:innerYho/minimalist-portafolio.git
 git branch -M main
 git push -u origin main
 
+
+##Instalacion
+https://pnpm.io/installation
+
+npm install -g pnpm@latest-10
+pnpm -v
+
 pnpm install
 
 pnpm run dev
@@ -45,3 +52,6 @@ href="../../../public/caso_practico_Escritores.pdf"
 
 
 https://fliphtml5.com
+
+
+npx @astrojs/upgrade
