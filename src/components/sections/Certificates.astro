@@ -1,0 +1,120 @@
+---
+import Section from "@/components/Section.astro";
+import { certificates } from "@cv";
+
+const hasCerts = certificates && certificates.length > 0;
+---
+
+{
+	hasCerts && (
+		<Section title="Certificaciones">
+			<ul class="grid">
+				{certificates.map((cert: any) => (
+					<li>
+						<article>
+							<div class="verified" title="Credencial verificable">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2.2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<path d="M12 2 4 5v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V5l-8-3Z" />
+									<path d="m9 12 2 2 4-4" />
+								</svg>
+							</div>
+							<div class="body">
+								<h3>{cert.name}</h3>
+								<p class="issuer">{cert.issuer}</p>
+								{cert.certificateNumber && (
+									<p class="num">N.º {cert.certificateNumber}</p>
+								)}
+								{cert.url && (
+									<a
+										class="verify no-print"
+										href={cert.url}
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										Verificar credencial →
+									</a>
+								)}
+							</div>
+						</article>
+					</li>
+				))}
+			</ul>
+		</Section>
+	)
+}
+
+<style>
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: 1rem;
+	}
+	article {
+		display: flex;
+		gap: 0.9rem;
+		height: 100%;
+		border: 1px solid var(--border);
+		background: var(--surface);
+		border-radius: var(--radius);
+		padding: 1.1rem 1.2rem;
+		transition:
+			border-color 0.25s ease,
+			transform 0.25s ease,
+			background 0.25s ease;
+	}
+	article:hover {
+		border-color: var(--border-strong);
+		background: var(--surface-2);
+		transform: translateY(-3px);
+	}
+	.verified {
+		flex-shrink: 0;
+		display: grid;
+		place-items: center;
+		width: 42px;
+		height: 42px;
+		border-radius: 12px;
+		color: #fff;
+		background: var(--accent-grad);
+		box-shadow: 0 6px 18px var(--glow);
+	}
+	.body {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+	}
+	h3 {
+		font-size: 0.95rem;
+		font-weight: 700;
+		color: var(--text);
+	}
+	.issuer {
+		font-size: 0.82rem;
+		color: var(--text-muted);
+	}
+	.num {
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		color: var(--text-dim);
+	}
+	.verify {
+		margin-top: 0.4rem;
+		font-size: 0.8rem;
+		font-weight: 600;
+		color: var(--accent);
+		transition: opacity 0.2s ease;
+	}
+	.verify:hover {
+		opacity: 0.75;
+	}
+</style>

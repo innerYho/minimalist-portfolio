@@ -2,136 +2,238 @@
 import { basics } from "@cv";
 import Section from "@/components/Section.astro";
 import Mail from "@/icons/Mail.astro";
-import Phone from "@/icons/Phone.astro";
 import GitHub from "@/icons/GitHub.astro";
 import LinkedIn from "@/icons/LinkedIn.astro";
 import X from "@/icons/X.astro";
 import WorldMap from "@/icons/WorldMap.astro";
+
 const { name, label, image, email, location, profiles, phone } = basics;
 const { city, region } = location;
 
 const SOCIAL_ICONS: Record<string, any> = {
-    GitHub,
-    LinkedIn,
-    X,
+	GitHub,
+	LinkedIn,
+	X,
 };
 
-const linkedInfo = profiles.find(({ network }) => network === "LinkendIn");
+const linkedInfo = profiles.find(({ network }) => network === "LinkedIn");
 const linkedUrl = linkedInfo?.url;
 const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ");
 ---
 
 <Section>
-    <div class="container">
-        <div class="info">
-            <h1>{name}</h1>
-            <h2>{label}</h2>
-            <span>
-                <WorldMap />
-                {city} - {region}
-            </span>
-            <footer>
-                <div class="print">
-                    {printInfo}
-                    <!-- {email} &bull; {linkedUrl} &bull; -->
-                </div>
-                <div class="no-print">
-                    {
-                        profiles.map(({ network, url }) => {
-                            const Icon = SOCIAL_ICONS[network];
-                            return (
-                                <a
-                                    href={url}
-                                    title={`Visita el perfil de ${name} en ${network}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <Icon />
-                                </a>
-                            );
-                        })
-                    }
+	<div class="hero">
+		<div class="info">
+			<div class="badge no-print">
+				<span class="pulse"></span> Disponible para proyectos remotos
+			</div>
+			<h1>{name}</h1>
+			<h2>{label}</h2>
+			<span class="location">
+				<WorldMap />
+				{city}, {region}
+			</span>
 
-                    {
-                        email && (
-                            <a
-                                href={`mailto:${email}`}
-                                title={`Enviar un correo electrónico a ${name} al correo ${email}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <Mail />
-                            </a>
-                        )
-                    }
-                    
-                </div>
-            </footer>
-        </div>
-        <figure>
-            <img src={image} alt="name" />
-        </figure>
-    </div>
+			<div class="print">{printInfo}</div>
+
+			<footer class="no-print">
+				<a class="btn btn-primary" href={`mailto:${email}`}>
+					<Mail />
+					Contáctame
+				</a>
+				{
+					profiles.map(({ network, url }) => {
+						const Icon = SOCIAL_ICONS[network];
+						return (
+							<a
+								class="btn btn-icon"
+								href={url}
+								title={`Perfil de ${name} en ${network}`}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<Icon />
+							</a>
+						);
+					})
+				}
+			</footer>
+		</div>
+
+		<figure>
+			<div class="ring"></div>
+			<img src={image} alt={`Foto de ${name}`} />
+		</figure>
+	</div>
 </Section>
 
 <style>
-    .container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-    }
-    .info {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding-right: 32px;
-    }
-    h1 {
-        font-size: 2rem;
-    }
-    h2 {
-        color: #444;
-        font-weight: 500;
-        font-size: 1.1rem;
-        text-wrap: balance;
-    }
-    img {
-        aspect-ratio: 1/1;
-        object-fit: cover;
-        width: 128px;
-        border-radius: 6px;
-    }
-    span {
-        color: #676;
-        display: flex;
-        align-items: center;
-        gap: 0.25rem;
-        font-size: 0.85rem;
-        letter-spacing: -0.05rem;
-    }
-    footer {
-        font-size: 0.65rem;
-        color: $555;
-        display: flex;
-        gap: 4px;
-        margin-top: 8px;
-    }
-    footer a {
-        color: #777;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid #fff;
-        padding: 4px;
-        height: 32px;
-        width: 32px;
-        border-radius: 6px;
-        transition: all 0.3s ease;
-    }
-    footer a:hover {
-        background: #ccc;
-        border: 1px solid #aaa;
-    }
+	.hero {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+		padding: 1.75rem;
+		border-radius: 20px;
+		border: 1px solid var(--border);
+		background: var(--surface);
+		box-shadow: var(--shadow);
+		backdrop-filter: blur(6px);
+	}
+
+	.info {
+		display: flex;
+		flex-direction: column;
+		gap: 0.55rem;
+	}
+
+	.badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.45rem;
+		width: fit-content;
+		padding: 0.3rem 0.7rem;
+		margin-bottom: 0.35rem;
+		font-size: 0.72rem;
+		font-weight: 500;
+		color: var(--text-muted);
+		border: 1px solid var(--border);
+		border-radius: 999px;
+		background: var(--surface-2);
+	}
+	.pulse {
+		width: 7px;
+		height: 7px;
+		border-radius: 50%;
+		background: #22c55e;
+		box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+		animation: pulse 2s infinite;
+	}
+	@keyframes pulse {
+		0% {
+			box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55);
+		}
+		70% {
+			box-shadow: 0 0 0 7px rgba(34, 197, 94, 0);
+		}
+		100% {
+			box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+		}
+	}
+
+	h1 {
+		font-size: clamp(1.9rem, 5vw, 2.6rem);
+		font-weight: 800;
+		background: var(--accent-grad);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+		line-height: 1.05;
+	}
+
+	h2 {
+		color: var(--text);
+		font-weight: 500;
+		font-size: 1.05rem;
+		text-wrap: balance;
+	}
+
+	.location {
+		display: flex;
+		align-items: center;
+		gap: 0.35rem;
+		color: var(--text-dim);
+		font-size: 0.9rem;
+		margin-top: 0.15rem;
+	}
+
+	footer {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-top: 1.1rem;
+		flex-wrap: wrap;
+	}
+
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.4rem;
+		height: 40px;
+		border-radius: 11px;
+		font-size: 0.85rem;
+		font-weight: 600;
+		border: 1px solid var(--border);
+		color: var(--text);
+		transition:
+			transform 0.2s ease,
+			border-color 0.2s ease,
+			background 0.2s ease,
+			color 0.2s ease;
+	}
+	.btn-primary {
+		padding-inline: 1.1rem;
+		color: #fff;
+		border-color: transparent;
+		background: var(--accent-grad);
+		box-shadow: 0 6px 20px var(--glow);
+	}
+	.btn-primary:hover {
+		transform: translateY(-2px);
+	}
+	.btn-icon {
+		width: 40px;
+		color: var(--text-muted);
+		background: var(--surface-2);
+	}
+	.btn-icon:hover {
+		transform: translateY(-2px);
+		color: var(--accent);
+		border-color: var(--border-strong);
+	}
+
+	figure {
+		position: relative;
+		flex-shrink: 0;
+		display: grid;
+		place-items: center;
+	}
+	.ring {
+		position: absolute;
+		inset: -6px;
+		border-radius: 22px;
+		padding: 2px;
+		background: var(--accent-grad);
+		opacity: 0.55;
+		filter: blur(1px);
+	}
+	img {
+		position: relative;
+		aspect-ratio: 1/1;
+		object-fit: cover;
+		width: 140px;
+		border-radius: 18px;
+		border: 2px solid var(--bg-2);
+	}
+
+	.print {
+		font-size: 0.8rem;
+		color: var(--text-muted);
+	}
+
+	@media (max-width: 640px) {
+		.hero {
+			flex-direction: column-reverse;
+			align-items: flex-start;
+			padding: 1.3rem;
+		}
+		figure {
+			align-self: center;
+		}
+		footer {
+			width: 100%;
+		}
+	}
 </style>

@@ -1,90 +1,282 @@
 ---
+import { basics } from "@cv";
+
 interface Props {
 	title: string;
+	description?: string;
 }
 
-const { title } = Astro.props;
+const { name, label, summary, image, url, profiles, location } = basics;
+const {
+	title,
+	description = `${label}. ${summary}`,
+} = Astro.props;
+
+const canonical = url ?? "https://minimalist-portfolio-neon.vercel.app/";
+const ogImage = new URL(image, canonical).toString();
+const sameAs = profiles.map((p) => p.url);
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "Person",
+	name,
+	jobTitle: label,
+	description: summary,
+	image: ogImage,
+	url: canonical,
+	email: `mailto:${basics.email}`,
+	address: {
+		"@type": "PostalAddress",
+		addressLocality: location.city,
+		addressCountry: location.region,
+	},
+	sameAs,
+};
 ---
 
 <!doctype html>
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="canonical" href={canonical} />
+
 		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="author" content={name} />
+		<meta
+			name="keywords"
+			content="Yhoiner Morales, Desarrollador Fullstack, React, PHP, Node.js, Flutter, Java, Bogotá, Colombia, Desarrollador de Software"
+		/>
+		<meta name="theme-color" content="#0a0a0f" />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="es_CO" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:site_name" content={name} />
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImage} />
+
+		<!-- Fuentes -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+			rel="stylesheet"
+		/>
+
+		<script
+			set:html={JSON.stringify(jsonLd)}
+			type="application/ld+json"
+		/>
+
+		<!-- Tema sin parpadeo: se aplica antes de pintar -->
+		<script is:inline>
+			(() => {
+				const stored = localStorage.getItem("theme");
+				const prefersDark = window.matchMedia(
+					"(prefers-color-scheme: dark)",
+				).matches;
+				const theme = stored ?? (prefersDark ? "dark" : "dark");
+				document.documentElement.dataset.theme = theme;
+			})();
+		</script>
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
+
 <style is:global>
-	html {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			"Courier New",
-			"Courier New",
-			Courier,
-			monospace;
-		background: #eee;
-		letter-spacing: -0.025rem; /* espacio entrelas letras reducido */
+	:root {
+		--font-sans:
+			"Inter", system-ui, -apple-system, BlinkMacSystemFont,
+			"Segoe UI", Roboto, sans-serif;
+		--font-mono: "JetBrains Mono", Menlo, Monaco, "Courier New", monospace;
+
+		--radius: 14px;
+		--radius-sm: 10px;
+		--maxw: 760px;
 	}
-	body,
-	figure {
-		margin: 0;
-		padding: 0;
+
+	/* ---------- Tema oscuro (por defecto) ---------- */
+	:root,
+	:root[data-theme="dark"] {
+		--bg: #0a0a0f;
+		--bg-2: #0e0e15;
+		--surface: rgba(255, 255, 255, 0.028);
+		--surface-2: rgba(255, 255, 255, 0.05);
+		--border: rgba(255, 255, 255, 0.08);
+		--border-strong: rgba(255, 255, 255, 0.16);
+		--text: #ededf2;
+		--text-muted: #a4a4b8;
+		--text-dim: #6d6d82;
+		--accent: #818cf8;
+		--accent-2: #22d3ee;
+		--accent-grad: linear-gradient(135deg, #818cf8 0%, #22d3ee 100%);
+		--accent-soft: rgba(129, 140, 248, 0.14);
+		--shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+		--glow: rgba(129, 140, 248, 0.25);
+		color-scheme: dark;
 	}
-	a {
-		text-decoration: none;
+
+	/* ---------- Tema claro ---------- */
+	:root[data-theme="light"] {
+		--bg: #fafafb;
+		--bg-2: #f2f2f6;
+		--surface: rgba(0, 0, 0, 0.02);
+		--surface-2: rgba(0, 0, 0, 0.04);
+		--border: rgba(0, 0, 0, 0.09);
+		--border-strong: rgba(0, 0, 0, 0.16);
+		--text: #16161d;
+		--text-muted: #52526a;
+		--text-dim: #8a8a9c;
+		--accent: #6366f1;
+		--accent-2: #0891b2;
+		--accent-grad: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
+		--accent-soft: rgba(99, 102, 241, 0.1);
+		--shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+		--glow: rgba(99, 102, 241, 0.18);
+		color-scheme: light;
 	}
-	ul {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
+
 	*,
 	*::before,
 	*::after {
 		box-sizing: border-box;
 	}
+
+	html {
+		font-family: var(--font-sans);
+		background: var(--bg);
+		color: var(--text);
+		scroll-behavior: smooth;
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+	}
+
+	body,
+	figure {
+		margin: 0;
+		padding: 0;
+	}
+
+	body {
+		min-height: 100vh;
+		background:
+			radial-gradient(
+				60rem 40rem at 15% -10%,
+				var(--accent-soft),
+				transparent 60%
+			),
+			radial-gradient(
+				50rem 40rem at 100% 0%,
+				color-mix(in srgb, var(--accent-2) 12%, transparent),
+				transparent 55%
+			),
+			var(--bg);
+		background-attachment: fixed;
+		transition:
+			background-color 0.4s ease,
+			color 0.4s ease;
+	}
+
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
 	h1,
 	h2,
 	h3,
-	h4 {
+	h4,
+	h5 {
 		margin: 0;
-		font-family:
-			system-ui,
-			-apple-system,
-			BlinkMacSystemFont,
-			"Segoe UI",
-			Roboto,
-			Oxygen,
-			Ubuntu,
-			Cantarell,
-			"Open Sans",
-			"Helvetica Neue",
-			sans-serif;
+		font-family: var(--font-sans);
+		line-height: 1.2;
+		letter-spacing: -0.02em;
 	}
+
 	p {
-		color: #676;
-		font-size: 0.8rem;
-		line-height: 1.5;
+		color: var(--text-muted);
+		font-size: 0.95rem;
+		line-height: 1.65;
 		margin: 0;
 		text-wrap: pretty;
 	}
+
+	::selection {
+		background: var(--accent);
+		color: #fff;
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 3px;
+		border-radius: 4px;
+	}
+
+	/* ---------- Animación de aparición al hacer scroll ---------- */
+	.reveal {
+		opacity: 0;
+		transform: translateY(24px);
+		transition:
+			opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+			transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+		will-change: opacity, transform;
+	}
+	.reveal.is-visible {
+		opacity: 1;
+		transform: none;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+		.reveal {
+			opacity: 1;
+			transform: none;
+			transition: none;
+		}
+	}
+
+	/* ---------- Impresión (PDF) ---------- */
 	.print {
 		display: none;
 	}
 	@media print {
-		.no-print {
-			display: none;
+		:root {
+			--bg: #fff;
+			--text: #000;
+			--text-muted: #333;
 		}
-	}
-	@media print {
+		body {
+			background: #fff;
+		}
+		.no-print {
+			display: none !important;
+		}
 		.print {
 			display: block;
 		}

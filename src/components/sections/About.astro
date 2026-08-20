@@ -4,9 +4,15 @@ import { basics } from "@cv";
 const { summary } = basics;
 ---
 
-<!-- <h2>About</h2> -->
-<Section title="Acerca de">
-    <p>{summary}</p>
+<Section title="Acerca de mí">
+	<p class="lead">{summary}</p>
 </Section>
 
-<style></style>
+<style>
+	.lead {
+		font-size: 1.02rem;
+		line-height: 1.75;
+		color: var(--text-muted);
+		max-width: 62ch;
+	}
+</style>

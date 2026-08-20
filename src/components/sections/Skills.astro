@@ -3,31 +3,52 @@ import Section from "@/components/Section.astro";
 import { skills } from "@cv";
 ---
 
-<!-- <h2>Skills</h2> -->
 <Section title="Habilidades">
-    <ul>
-        {
-            skills.map(({ name }) => (
-                <li>
-                    <span>{name}</span>
-                </li>
-            ))
-        }
-    </ul>
+	<ul class="skills">
+		{
+			skills.map(({ name, level }) => (
+				<li title={level}>
+					<span class="name">{name}</span>
+					{level && <span class="level">{level}</span>}
+				</li>
+			))
+		}
+	</ul>
 </Section>
 
 <style>
-    ul {
-        display: inline-flex;
-        gap: 8px;
-        flex-wrap: wrap;
-    }
-    li {
-        border-radius: 6px;
-        background: #ccd;
-        color: black;
-        font-size: 0.8rem;
-        font-weight: 500;
-        padding: 0.2rem 0.6rem;
-    }
+	.skills {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.6rem;
+	}
+	li {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.4rem 0.85rem;
+		border-radius: 11px;
+		border: 1px solid var(--border);
+		background: var(--surface);
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: var(--text);
+		cursor: default;
+		transition:
+			border-color 0.2s ease,
+			background 0.2s ease,
+			transform 0.2s ease;
+	}
+	li:hover {
+		border-color: var(--accent);
+		background: var(--accent-soft);
+		transform: translateY(-2px);
+	}
+	.level {
+		font-size: 0.68rem;
+		font-weight: 500;
+		color: var(--text-dim);
+		padding-left: 0.5rem;
+		border-left: 1px solid var(--border);
+	}
 </style>

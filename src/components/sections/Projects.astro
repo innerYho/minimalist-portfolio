@@ -1,157 +1,166 @@
 ---
 import Section from "@/components/Section.astro";
 import { projects } from "@cv";
+import GitHub from "@/icons/GitHub.astro";
 ---
 
-<!-- <h2>Project</h2> -->
 <Section title="Proyectos">
-    <!-- <a href="/indexProjects">about Sonali</a> -->
-    <ul>
-        {
-            projects.map(
-                ({
-                    position,
-                    url,
-                    description,
-                    highlights,
-                    name,
-                    isActive,
-                    github,
-                    process_url,
-                }) => {
-                    return (
-                        <li>
-                            <article>
-                                <header>
-                                    <h3 id="h_center">
-                                        <a
-                                            id="pdf"
-                                            href={url}
-                                            target="_blank"
-                                            title={`Ver el proyecto ${name}`}
-                                        >
-                                            {name}
-                                        </a>
-                                        {isActive && <span> &bull;</span>}
-                                        <label>{position}</label>
+	<ul class="grid">
+		{
+			projects.map(
+				({ url, description, highlights, name, isActive, github, process_url }) => {
+					return (
+						<li>
+							<article>
+								<header>
+									<h3>
+										<a
+											href={url}
+											target="_blank"
+											rel="noopener noreferrer"
+											title={`Ver el proyecto ${name}`}
+										>
+											{name}
+										</a>
+										{isActive && (
+											<span class="active" title="Activo / en curso" />
+										)}
+									</h3>
+									<p>{description}</p>
+								</header>
 
-                                        {github && (
-                                            <a
-                                                class="github-code-link"
-                                                href={github}
-                                                target="_blank"
-                                                title={`Ver código fuente del proyecto ${name}`}
-                                            />
-                                        )}
-                                    </h3>
-                                    <p>{description}</p>
-                                </header>
-                                <footer>
-                                    <ul>
-                                        {process_url && (
-                                            <a
-                                                type="button"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                id="a_btn"
-                                                href={process_url}
-                                            >
-                                                Ver proceso
-                                            </a>
-                                        )}
-                                        {highlights.map((highlight) => {
-                                            return <span>{highlight}</span>;
-                                        })}
-                                    </ul>
-                                </footer>
-                            </article>
-                        </li>
-                    );
-                },
-            )
-        }
-    </ul>
+								{highlights && highlights.length > 0 && (
+									<ul class="tags">
+										{highlights.map((h) => (
+											<li>{h}</li>
+										))}
+									</ul>
+								)}
+
+								<footer>
+									{process_url && (
+										<a
+											class="link"
+											href={process_url}
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											Ver proceso →
+										</a>
+									)}
+									{github && (
+										<a
+											class="link icon"
+											href={github}
+											target="_blank"
+											rel="noopener noreferrer"
+											title={`Código de ${name}`}
+										>
+											<GitHub />
+											Código
+										</a>
+									)}
+								</footer>
+							</article>
+						</li>
+					);
+				},
+			)
+		}
+	</ul>
 </Section>
 
-<script></script>
 <style>
-    ul {
-        /* Responsive sin media queries */
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1rem;
-        /* margin-inline: -16px; */
-    }
-    #h_center {
-        text-align: center;
-    }
-    #a_btn {
-        font-weight: bold;
-        font-size: medium;
-        margin-right: 13px;
-
-        position: relative;
-        text-align: center;
-        border-radius: 6px;
-        background: #acc;
-        border: 1px solid;
-        /* block px-2 py-2 transition hover:-color: ;dark:hover:text-yellow-400 */
-    }
-    #a_btn:hover {
-        text-decoration: none;
-        background: #acf;
-        color: #fff;
-    }
-    article {
-        border-radius: 8px;
-        border: 2px solid #cdc;
-        gap: 16px;
-        display: flex;
-        flex-direction: column;
-        padding: 16px;
-        height: 100%;
-    }
-    article header {
-        flex: 1;
-    }
-    article a {
-        color: #444;
-    }
-    article a:hover {
-        text-decoration: underline;
-    }
-    article p {
-        font-size: 0.75rem;
-        line-height: 1.2rem;
-        margin-bottom: 4px;
-    }
-    article h3 {
-        margin-bottom: 4px;
-    }
-    article h3 span {
-        color: rgb(0, 188, 64);
-        animation-name: flicker;
-        animation-duration: 3s;
-        animation-timing-function: ease-in;
-        animation-iteration-count: infinite;
-    }
-    footer {
-        /* display: flex; */
-        display: inline-block;
-        flex-wrap: wrap;
-        gap: 4px;
-        font-size: 0.6rem;
-        /* padding-left: 10px; */
-    }
-    footer span {
-        /* display: inline-flex; */
-        text-align: center;
-        border-radius: 6px;
-        background: #acc;
-        color: #444;
-        font-size: 0.6rem;
-        font-weight: 500;
-        padding: 0.2rem 0.6rem;
-        margin-right: 6%;
-    }
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+		gap: 1rem;
+	}
+	article {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 0.85rem;
+		border: 1px solid var(--border);
+		background: var(--surface);
+		border-radius: var(--radius);
+		padding: 1.2rem;
+		transition:
+			border-color 0.25s ease,
+			transform 0.25s ease,
+			background 0.25s ease,
+			box-shadow 0.25s ease;
+	}
+	article:hover {
+		border-color: var(--border-strong);
+		background: var(--surface-2);
+		transform: translateY(-4px);
+		box-shadow: var(--shadow);
+	}
+	header {
+		flex: 1;
+	}
+	h3 {
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+		font-size: 1rem;
+		font-weight: 700;
+		margin-bottom: 0.4rem;
+	}
+	h3 a {
+		color: var(--text);
+		transition: color 0.2s ease;
+	}
+	h3 a:hover {
+		color: var(--accent);
+	}
+	.active {
+		width: 7px;
+		height: 7px;
+		border-radius: 50%;
+		background: var(--accent-grad);
+		box-shadow: 0 0 10px var(--glow);
+		flex-shrink: 0;
+	}
+	p {
+		font-size: 0.85rem;
+		line-height: 1.55;
+	}
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem;
+	}
+	.tags li {
+		font-size: 0.68rem;
+		font-weight: 500;
+		color: var(--text-muted);
+		padding: 0.18rem 0.55rem;
+		border-radius: 999px;
+		border: 1px solid var(--border);
+		background: var(--surface-2);
+	}
+	footer {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		margin-top: auto;
+		padding-top: 0.4rem;
+	}
+	.link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		font-size: 0.8rem;
+		font-weight: 600;
+		color: var(--accent);
+		transition: opacity 0.2s ease;
+	}
+	.link:hover {
+		opacity: 0.75;
+	}
+	.link.icon {
+		color: var(--text-muted);
+	}
 </style>

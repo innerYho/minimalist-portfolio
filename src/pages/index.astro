@@ -2,29 +2,71 @@
 import Layout from "@/layouts/Layout.astro";
 import About from "@/components/sections/About.astro";
 import Education from "@/components/sections/Education.astro";
+import Certificates from "@/components/sections/Certificates.astro";
 import Experience from "@/components/sections/Experience.astro";
 import Hero from "@/components/sections/Hero.astro";
 import Projects from "@/components/sections/Projects.astro";
 import Skills from "@/components/sections/Skills.astro";
+import ThemeToggle from "@/components/ThemeToggle.astro";
 import KeyboardManager from "@/components/KeyboardManager.astro";
 ---
 
-<Layout title="innerYho Portafolio">
+<Layout title="Yhoiner Morales · Desarrollador Fullstack">
+	<ThemeToggle />
 	<main>
 		<Hero />
 		<About />
 		<Experience />
 		<Education />
+		<Certificates />
 		<Projects />
 		<Skills />
 	</main>
 	<KeyboardManager />
 </Layout>
 
+<script>
+	// Animación de aparición al hacer scroll
+	const reduce = window.matchMedia(
+		"(prefers-reduced-motion: reduce)",
+	).matches;
+	const items = document.querySelectorAll(".reveal");
+
+	if (reduce || !("IntersectionObserver" in window)) {
+		items.forEach((el) => el.classList.add("is-visible"));
+	} else {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add("is-visible");
+						observer.unobserve(entry.target);
+					}
+				});
+			},
+			{ threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+		);
+		items.forEach((el) => observer.observe(el));
+	}
+</script>
+
 <style>
 	main {
-		padding: 4rem;
-		margin: auto;
 		width: 100%;
+		max-width: calc(var(--maxw) + 4rem);
+		margin-inline: auto;
+		padding: 5rem 2rem 6rem;
+	}
+
+	@media (max-width: 640px) {
+		main {
+			padding: 3.5rem 1.1rem 5rem;
+		}
+	}
+
+	@media print {
+		main {
+			padding: 0;
+		}
 	}
 </style>

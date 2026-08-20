@@ -3,60 +3,153 @@ import Section from "@/components/Section.astro";
 import { work } from "@cv";
 ---
 
-<!-- <h2>Experience</h2> -->
 <Section title="Experiencia">
-    <ul>
-        {
-            work.map(({ name, position, startDate, endDate, summary }) => {
-                const startYear = new Date(startDate).getFullYear();
-                const endYear =
-                    endDate !== null
-                        ? new Date(endDate).getFullYear()
-                        : "Hasta el presente";
-                const years = `${startYear} - ${endYear}`;
-                return (
-                    <li>
-                        <article>
-                            <header>
-                                <div>
-                                    <h3>{name}</h3>
-                                    <h4>{position}</h4>
-                                </div>
-                                <time>{years}</time>
-                            </header>
-                            <footer>
-                                <p>{summary}</p>
-                            </footer>
-                        </article>
-                    </li>
-                );
-            })
-        }
-    </ul>
+	<ol class="timeline">
+		{
+			work.map(
+				({ name, position, startDate, endDate, summary, highlights }) => {
+					const startYear = startDate
+						? new Date(startDate).getFullYear()
+						: "";
+					const endYear =
+						endDate !== null && endDate !== undefined
+							? new Date(endDate).getFullYear()
+							: "Actualidad";
+					const years = [startYear, endYear]
+						.filter((v) => v !== "")
+						.join(" — ");
+					const current = endDate === null || endDate === undefined;
+					return (
+						<li>
+							<span class:list={["node", { current }]} />
+							<article>
+								<header>
+									<div>
+										<h3>{name}</h3>
+										<h4>{position}</h4>
+									</div>
+									<time>{years}</time>
+								</header>
+								<p>{summary}</p>
+								{highlights && highlights.length > 0 && (
+									<ul class="tags">
+										{highlights.map((h) => (
+											<li>{h}</li>
+										))}
+									</ul>
+								)}
+							</article>
+						</li>
+					);
+				},
+			)
+		}
+	</ol>
 </Section>
 
 <style>
-    ul {
-        display: flex;
-        flex-direction: column;
-        gap: 32px;
-    }
-    article h3 {
-        font-weight: 500;
-        color: #111;
-    }
-    article h4 {
-        color: #222;
-        font-weight: 400;
-    }
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 4px;
-    }
-    time {
-        color: #656;
-        font-size: 0.85rem;
-    }
+	.timeline {
+		display: flex;
+		flex-direction: column;
+		gap: 1.75rem;
+		position: relative;
+		padding-left: 1.4rem;
+	}
+	.timeline::before {
+		content: "";
+		position: absolute;
+		left: 4px;
+		top: 6px;
+		bottom: 6px;
+		width: 1px;
+		background: linear-gradient(
+			to bottom,
+			var(--border-strong),
+			transparent
+		);
+	}
+
+	li {
+		position: relative;
+	}
+
+	.node {
+		position: absolute;
+		left: -1.4rem;
+		top: 6px;
+		width: 9px;
+		height: 9px;
+		border-radius: 50%;
+		background: var(--border-strong);
+		transform: translateX(-1px);
+	}
+	.node.current {
+		background: var(--accent-grad);
+		box-shadow: 0 0 0 4px var(--accent-soft);
+	}
+
+	article {
+		border: 1px solid var(--border);
+		background: var(--surface);
+		border-radius: var(--radius);
+		padding: 1.1rem 1.2rem;
+		transition:
+			border-color 0.25s ease,
+			transform 0.25s ease,
+			background 0.25s ease;
+	}
+	article:hover {
+		border-color: var(--border-strong);
+		background: var(--surface-2);
+		transform: translateX(3px);
+	}
+
+	header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 1rem;
+		margin-bottom: 0.5rem;
+	}
+	h3 {
+		font-size: 1rem;
+		font-weight: 700;
+		color: var(--text);
+	}
+	h4 {
+		font-size: 0.9rem;
+		font-weight: 500;
+		color: var(--accent);
+		margin-top: 0.1rem;
+	}
+	time {
+		flex-shrink: 0;
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		color: var(--text-dim);
+		white-space: nowrap;
+	}
+
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+		margin-top: 0.8rem;
+	}
+	.tags li {
+		font-size: 0.72rem;
+		font-weight: 500;
+		color: var(--text-muted);
+		padding: 0.2rem 0.6rem;
+		border-radius: 999px;
+		border: 1px solid var(--border);
+		background: var(--surface-2);
+	}
+
+	@media (max-width: 540px) {
+		header {
+			flex-direction: column;
+			gap: 0.25rem;
+		}
+	}
 </style>

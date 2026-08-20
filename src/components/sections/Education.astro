@@ -3,75 +3,134 @@ import Section from "@/components/Section.astro";
 import { education } from "@cv";
 ---
 
-<!-- <h2>Education</h2> -->
 <Section title="Educación">
-    <ul>
-        {
-            education.map(
-                ({ institution, area, startDate, endDate, url, isActive }) => {
-                    return (
-                        <li>
-                            <article>
-                                <header>
-                                    <h3>
-                                        <a href={url} target="_blank">
-                                            {institution}
-                                        </a>
-                                        {isActive && <span> &bull;</span>}
-                                    </h3>
-                                    <h5>{area}</h5>
-                                    <p>
-                                        {startDate} - {endDate}
-                                    </p>
-                                </header>
-                                <footer>
-                                    <a href={url} target="_blank">
-                                        {url}
-                                    </a>
-                                </footer>
-                            </article>
-                        </li>
-                    );
-                },
-            )
-        }
-    </ul>
+	<ul class="grid">
+		{
+			education.map(
+				({ institution, area, startDate, endDate, url, isActive, courses }) => {
+					const startYear = startDate
+						? new Date(startDate).getFullYear()
+						: "";
+					const endYear = endDate
+						? new Date(endDate).getFullYear()
+						: "Actualidad";
+					const years = [startYear, endYear]
+						.filter((v) => v !== "")
+						.join(" — ");
+					return (
+						<li>
+							<article>
+								<header>
+									<h3>
+										<a
+											href={url}
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											{institution}
+										</a>
+										{isActive && (
+											<span class="active" title="En curso" />
+										)}
+									</h3>
+									<time>{years}</time>
+								</header>
+								<h4>{area}</h4>
+								{courses && courses.length > 0 && (
+									<ul class="tags">
+										{courses.map((c) => (
+											<li>{c}</li>
+										))}
+									</ul>
+								)}
+							</article>
+						</li>
+					);
+				},
+			)
+		}
+	</ul>
 </Section>
-<!-- igual que la experiencia -->
+
 <style>
-    ul {
-        /* Responsive sin media queries */
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1rem;
-        /* margin-inline: -16px; */
-    }
-    article {
-        border-radius: 8px;
-        border: 2px solid #cdc;
-        gap: 16px;
-        display: flex;
-        flex-direction: column;
-        padding: 16px;
-        height: 100%;
-    }
-    article a {
-        color: #444;
-    }
-    article a:hover {
-        text-decoration: underline;
-    }
-    article h3 span {
-        color: rgb(0, 188, 64);
-        animation-name: flicker;
-        animation-duration: 3s;
-        animation-timing-function: ease-in;
-        animation-iteration-count: infinite;
-    }
-    footer {
-        display: inline-block;
-        flex-wrap: wrap;
-        gap: 4px;
-        font-size: 0.6rem;
-    }
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: 1rem;
+	}
+	article {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+		border: 1px solid var(--border);
+		background: var(--surface);
+		border-radius: var(--radius);
+		padding: 1.1rem 1.2rem;
+		transition:
+			border-color 0.25s ease,
+			transform 0.25s ease,
+			background 0.25s ease;
+	}
+	article:hover {
+		border-color: var(--border-strong);
+		background: var(--surface-2);
+		transform: translateY(-3px);
+	}
+	header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 0.75rem;
+	}
+	h3 {
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+		font-size: 0.95rem;
+		font-weight: 700;
+	}
+	h3 a {
+		color: var(--text);
+		transition: color 0.2s ease;
+	}
+	h3 a:hover {
+		color: var(--accent);
+	}
+	.active {
+		width: 7px;
+		height: 7px;
+		border-radius: 50%;
+		background: var(--accent-grad);
+		box-shadow: 0 0 10px var(--glow);
+		flex-shrink: 0;
+	}
+	time {
+		flex-shrink: 0;
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		color: var(--text-dim);
+		white-space: nowrap;
+	}
+	h4 {
+		font-size: 0.85rem;
+		font-weight: 500;
+		color: var(--text-muted);
+		line-height: 1.4;
+	}
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem;
+		margin-top: auto;
+		padding-top: 0.3rem;
+	}
+	.tags li {
+		font-size: 0.68rem;
+		font-weight: 500;
+		color: var(--text-dim);
+		padding: 0.18rem 0.55rem;
+		border-radius: 999px;
+		border: 1px solid var(--border);
+	}
 </style>
