@@ -39,4 +39,13 @@ const { title } = Astro.props;
 		box-shadow: 0 0 12px var(--glow);
 		flex-shrink: 0;
 	}
+
+	/* Ningún título de sección queda huérfano al final de una hoja: si no
+	   entra junto con lo que le sigue, ambos pasan enteros a la siguiente. */
+	@media print {
+		h2 {
+			break-after: avoid;
+			page-break-after: avoid;
+		}
+	}
 </style>

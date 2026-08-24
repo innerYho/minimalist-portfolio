@@ -157,4 +157,13 @@ const { work } = getCv(locale);
 			gap: 0.25rem;
 		}
 	}
+
+	/* Cada experiencia (nodo del timeline + tarjeta) no se corta entre
+	   hojas: si no entra completa, pasa entera a la siguiente. */
+	@media print {
+		.timeline > li {
+			break-inside: avoid;
+			page-break-inside: avoid;
+		}
+	}
 </style>

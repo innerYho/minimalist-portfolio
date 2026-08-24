@@ -138,4 +138,12 @@ const { education } = getCv(locale);
 		border-radius: 999px;
 		border: 1px solid var(--border);
 	}
+
+	/* Cada tarjeta de educación no se corta entre hojas. */
+	@media print {
+		.grid > li {
+			break-inside: avoid;
+			page-break-inside: avoid;
+		}
+	}
 </style>

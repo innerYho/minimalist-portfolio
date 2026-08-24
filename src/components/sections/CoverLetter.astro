@@ -1,0 +1,149 @@
+---
+// Se activa/desactiva con el flag SHOW_COVER_LETTER en src/pages/en/index.astro
+// (no hace falta borrar nada para "apagarla"). Solo aplica a la ruta /en
+// (la carta está en inglés).
+//
+// Pensada para EXPORTAR (Ctrl+P / "Print or save as PDF"): al imprimir, esta
+// sección ocupa su propia página (salto de página después) y el resto del
+// CV arranca en la página siguiente — como un paquete carta + CV real.
+//
+// Ajustá LETTER_DATE y el saludo antes de enviarla a una vacante específica.
+import Section from "@/components/Section.astro";
+import { getCv } from "@/i18n/getCv";
+
+const { basics } = getCv("en");
+const { name, email, phone, location, profiles } = basics;
+const { city, region } = location;
+
+const linkedin = profiles.find((p) => p.network === "LinkedIn")?.url;
+const github = profiles.find((p) => p.network === "GitHub")?.url;
+
+// Ajustar manualmente antes de exportar para una postulación puntual.
+const LETTER_DATE = "August 24, 2026";
+const GREETING = "Dear Hiring Manager,";
+---
+
+<div class="cover-letter-page">
+	<Section title="Cover Letter">
+		<div class="letter">
+			<header class="letterhead">
+				<p class="name">{name}</p>
+				<p>{city}, {region}</p>
+				<p>{email} · {phone}</p>
+				<p>{linkedin} · {github}</p>
+				<p class="date">{LETTER_DATE}</p>
+			</header>
+
+			<p>{GREETING}</p>
+
+			<p>
+				I am writing to express my interest in AI Computer Vision
+				Engineer opportunities. I am a fullstack developer with a
+				growing specialization in applied artificial intelligence,
+				and I would like to share both my technical background and a
+				personal project that reflects why I want to move into
+				computer vision work full-time.
+			</p>
+
+			<p>
+				Over the past months I have been developing, on my own
+				initiative, a pothole detection system for road
+				infrastructure using YOLOv8n, designed to run on footage
+				captured directly from a smartphone camera — a low-cost,
+				accessible approach aimed at making road-condition monitoring
+				viable for municipalities and maintenance crews without
+				specialized hardware. I built a dataset of 1,636 real-world
+				images and trained the model from it, but the results
+				plateaued at 0.65 mAP@0.65, short of the accuracy threshold
+				the product needs to move into real testing. Rather than
+				treat that as a dead end, I identified the root cause —
+				dataset size and label quality — and I am now capturing
+				additional video footage from real road conditions and
+				labeling it myself to keep iterating on training until the
+				model is reliable enough for field testing. This project has
+				been my hands-on introduction to the full lifecycle of a
+				computer vision system: data collection, labeling, training,
+				evaluating against a product-readiness bar, and going back to
+				fix what the numbers say isn't working yet.
+			</p>
+
+			<p>
+				This experience sits on top of a solid engineering
+				foundation. I work daily with Python, and I have been
+				building AI/ML skills in parallel — machine learning
+				fundamentals, OpenCV, and object detection with YOLO —
+				alongside completed coursework in Generative AI and an
+				ongoing diploma in AI-driven cybersecurity. On the software
+				side, I bring several years of production fullstack
+				experience (React, PHP, Node.js, MySQL) and a Systems
+				Engineering background, which means I can take a model from a
+				notebook to something that is actually deployed and usable.
+			</p>
+
+			<p>
+				What I am looking for now is the opportunity to work on
+				computer vision problems full-time, with a team that can help
+				me grow faster than I can on my own — better data pipelines,
+				more compute, and people who have already solved the kinds of
+				problems I am currently working through by hand. I would
+				welcome the chance to talk about how my hands-on, self-driven
+				approach to this pothole detection project — and the
+				fullstack skills that let me ship what I build — could
+				contribute to your team.
+			</p>
+
+			<p>
+				Thank you for your time and consideration. I would be glad to
+				discuss further at your convenience.
+			</p>
+
+			<p class="signoff">Sincerely,<br />{name}</p>
+		</div>
+	</Section>
+</div>
+
+<style>
+	.letter {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		max-width: 68ch;
+	}
+	.letterhead {
+		margin-bottom: 0.5rem;
+		font-size: 0.85rem;
+		color: var(--text-dim);
+		line-height: 1.5;
+	}
+	.letterhead .name {
+		font-size: 1rem;
+		font-weight: 700;
+		color: var(--text);
+	}
+	.letterhead .date {
+		margin-top: 0.5rem;
+	}
+	.letter p {
+		font-size: 0.95rem;
+		line-height: 1.75;
+		color: var(--text-muted);
+	}
+	.signoff {
+		margin-top: 0.5rem;
+		color: var(--text);
+	}
+
+	/* Al exportar/imprimir: la carta ocupa las hojas que necesite (1 o 2,
+	   sin cortar párrafos a la mitad) y el CV arranca justo en la
+	   siguiente, sin hojas en blanco de más. */
+	@media print {
+		.cover-letter-page {
+			break-after: page;
+			page-break-after: always;
+		}
+		.letter p {
+			break-inside: avoid;
+			page-break-inside: avoid;
+		}
+	}
+</style>

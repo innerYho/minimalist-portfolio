@@ -122,4 +122,12 @@ const hasCerts = certificates && certificates.length > 0;
 	.verify:hover {
 		opacity: 0.75;
 	}
+
+	/* Cada tarjeta de certificación no se corta entre hojas. */
+	@media print {
+		.grid > li {
+			break-inside: avoid;
+			page-break-inside: avoid;
+		}
+	}
 </style>

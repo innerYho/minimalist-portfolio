@@ -25,12 +25,6 @@
 - [ ] Agregar keywords relevantes
 - [ ] Implementar structured data (JSON-LD) para mejor SEO
 
-### Internacionalización (i18n)
-- [ ] Implementar sistema de cambio de idioma (español/inglés)
-- [ ] Configurar rutas dinámicas para idiomas
-- [ ] Crear cv_english.json con tu información
-- [ ] Agregar selector de idioma en la interfaz
-
 ### Modo Oscuro (Dark Mode)
 - [ ] Crear toggle de tema claro/oscuro
 - [ ] Implementar variables CSS para ambos temas
@@ -109,8 +103,7 @@
 ## ✨ Funcionalidades Nuevas
 
 ### Descarga de CV
-- [ ] Agregar botón para generar PDF del CV
-- [ ] Optimizar estilos de impresión (@media print)
+- [ ] Agregar botón para generar PDF del CV (hoy es Ctrl+P o la paleta de comandos → "Print or save as PDF")
 - [ ] Permitir personalización antes de descargar
 
 ### Contacto

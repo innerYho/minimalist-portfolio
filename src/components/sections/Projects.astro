@@ -168,4 +168,12 @@ const { projects } = getCv(locale);
 	.link.icon {
 		color: var(--text-muted);
 	}
+
+	/* Cada tarjeta de proyecto no se corta entre hojas. */
+	@media print {
+		.grid > li {
+			break-inside: avoid;
+			page-break-inside: avoid;
+		}
+	}
 </style>

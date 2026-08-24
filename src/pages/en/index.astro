@@ -10,15 +10,23 @@ import Experience from "@/components/sections/Experience.astro";
 import Hero from "@/components/sections/Hero.astro";
 import Projects from "@/components/sections/Projects.astro";
 import Skills from "@/components/sections/Skills.astro";
+import CoverLetter from "@/components/sections/CoverLetter.astro";
 import ThemeToggle from "@/components/ThemeToggle.astro";
 import LocaleToggle from "@/components/LocaleToggle.astro";
 import KeyboardManager from "@/components/KeyboardManager.astro";
+
+// Interruptor de la carta motivacional — el componente (encabezado, salto de
+// página, etc. en CoverLetter.astro) queda siempre disponible; esto solo
+// decide si se muestra. true = incluida (para exportar el PDF a una vacante
+// puntual), false = CV normal sin carta.
+const SHOW_COVER_LETTER = false;
 ---
 
 <Layout title="Yhoiner Morales · Fullstack Developer">
 	<ThemeToggle />
 	<LocaleToggle />
 	<main>
+		{SHOW_COVER_LETTER && <CoverLetter />}
 		<Hero />
 		<About />
 		<Experience />
