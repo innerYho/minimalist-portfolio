@@ -1,10 +1,15 @@
 ---
 import Section from "@/components/Section.astro";
-import { projects } from "@cv";
+import { getCv } from "@/i18n/getCv";
+import { getLocale, ui } from "@/i18n/ui";
 import GitHub from "@/icons/GitHub.astro";
+
+const locale = getLocale(Astro.currentLocale);
+const t = ui[locale];
+const { projects } = getCv(locale);
 ---
 
-<Section title="Proyectos">
+<Section title={t.sectionTitles.projects}>
 	<ul class="grid">
 		{
 			projects.map(
@@ -18,12 +23,12 @@ import GitHub from "@/icons/GitHub.astro";
 											href={url}
 											target="_blank"
 											rel="noopener noreferrer"
-											title={`Ver el proyecto ${name}`}
+											title={t.projects.viewProject(name)}
 										>
 											{name}
 										</a>
 										{isActive && (
-											<span class="active" title="Activo / en curso" />
+											<span class="active" title={t.common.activeOngoing} />
 										)}
 									</h3>
 									<p>{description}</p>
@@ -45,7 +50,7 @@ import GitHub from "@/icons/GitHub.astro";
 											target="_blank"
 											rel="noopener noreferrer"
 										>
-											Ver proceso →
+											{t.projects.viewProcess}
 										</a>
 									)}
 									{github && (
@@ -54,10 +59,10 @@ import GitHub from "@/icons/GitHub.astro";
 											href={github}
 											target="_blank"
 											rel="noopener noreferrer"
-											title={`Código de ${name}`}
+											title={t.projects.codeOf(name)}
 										>
 											<GitHub />
-											Código
+											{t.projects.code}
 										</a>
 									)}
 								</footer>

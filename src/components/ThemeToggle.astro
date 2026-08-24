@@ -1,13 +1,16 @@
 ---
 // Botón para alternar entre tema claro y oscuro
+import { getLocale, ui } from "@/i18n/ui";
+
+const t = ui[getLocale(Astro.currentLocale)];
 ---
 
 <button
 	id="theme-toggle"
 	class="theme-toggle no-print"
 	type="button"
-	aria-label="Cambiar tema claro u oscuro"
-	title="Cambiar tema"
+	aria-label={t.themeToggle.ariaLabel}
+	title={t.themeToggle.title}
 >
 	<svg
 		class="icon icon-sun"

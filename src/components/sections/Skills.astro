@@ -1,9 +1,14 @@
 ---
 import Section from "@/components/Section.astro";
-import { skills } from "@cv";
+import { getCv } from "@/i18n/getCv";
+import { getLocale, ui } from "@/i18n/ui";
+
+const locale = getLocale(Astro.currentLocale);
+const t = ui[locale];
+const { skills } = getCv(locale);
 ---
 
-<Section title="Habilidades">
+<Section title={t.sectionTitles.skills}>
 	<ul class="skills">
 		{
 			skills.map(({ name, level }) => (

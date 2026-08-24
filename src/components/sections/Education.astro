@@ -1,9 +1,14 @@
 ---
 import Section from "@/components/Section.astro";
-import { education } from "@cv";
+import { getCv } from "@/i18n/getCv";
+import { getLocale, ui } from "@/i18n/ui";
+
+const locale = getLocale(Astro.currentLocale);
+const t = ui[locale];
+const { education } = getCv(locale);
 ---
 
-<Section title="Educación">
+<Section title={t.sectionTitles.education}>
 	<ul class="grid">
 		{
 			education.map(
@@ -13,7 +18,7 @@ import { education } from "@cv";
 						: "";
 					const endYear = endDate
 						? new Date(endDate).getFullYear()
-						: "Actualidad";
+						: t.common.present;
 					const years = [startYear, endYear]
 						.filter((v) => v !== "")
 						.join(" — ");
@@ -30,7 +35,7 @@ import { education } from "@cv";
 											{institution}
 										</a>
 										{isActive && (
-											<span class="active" title="En curso" />
+											<span class="active" title={t.common.ongoing} />
 										)}
 									</h3>
 									<time>{years}</time>

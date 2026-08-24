@@ -1,0 +1,50 @@
+---
+// Botón flotante para cambiar entre el CV en español (/) y en inglés (/en).
+// Se posiciona a la izquierda de ThemeToggle (mismo tamaño: 42px).
+import { getLocale, ui } from "@/i18n/ui";
+
+const t = ui[getLocale(Astro.currentLocale)];
+---
+
+<a
+	class="locale-toggle no-print"
+	href={t.localeToggle.targetPath}
+	aria-label={t.localeToggle.ariaLabel}
+	title={t.localeToggle.title}
+>
+	{t.localeToggle.label}
+</a>
+
+<style>
+	.locale-toggle {
+		position: fixed;
+		top: 1.25rem;
+		/* ThemeToggle: right 1.25rem, width 42px → se ubica justo a su izquierda */
+		right: calc(1.25rem + 42px + 0.6rem);
+		z-index: 50;
+		display: inline-grid;
+		place-items: center;
+		width: 42px;
+		height: 42px;
+		border-radius: 12px;
+		border: 1px solid var(--border);
+		background: color-mix(in srgb, var(--bg-2) 70%, transparent);
+		backdrop-filter: blur(10px);
+		color: var(--text-muted);
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		font-weight: 600;
+		letter-spacing: 0.02em;
+		cursor: pointer;
+		transition:
+			color 0.25s ease,
+			border-color 0.25s ease,
+			transform 0.25s ease,
+			background 0.25s ease;
+	}
+	.locale-toggle:hover {
+		color: var(--accent);
+		border-color: var(--border-strong);
+		transform: translateY(-2px);
+	}
+</style>

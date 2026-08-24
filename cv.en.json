@@ -1,12 +1,12 @@
 {
     "basics": {
         "name": "Yhoiner Olfrediz Morales Ríos",
-        "label": "Desarrollador de Software Fullstack",
+        "label": "Fullstack Software Developer",
         "image": "/yhoiner.png",
         "email": "yhoiner1234@hotmail.com",
         "phone": "+57 313 497 6542",
         "url": "https://github.com/innerYho",
-        "summary": "Tecnólogo en Análisis y Desarrollo de Sistemas de Información (SENA) y estudiante de Ingeniería de Sistemas en la UNAD. Desarrollador fullstack con experiencia en React, PHP, Node.js, Flutter y Java, además de Python aplicado a inteligencia artificial y visión por computador. Vivo en Bogotá y estoy abierto a oportunidades remotas. Me apasiona construir proyectos de alto impacto social, la tecnología verde, la inteligencia artificial y las startups.",
+        "summary": "Technologist in Information Systems Analysis and Development (SENA) and Systems Engineering student at UNAD. Fullstack developer with experience in React, PHP, Node.js, Flutter, and Java, as well as Python applied to artificial intelligence and computer vision. Based in Bogotá and open to remote opportunities. Passionate about building high social-impact projects, green technology, artificial intelligence, and startups.",
         "location": {
             "address": "",
             "postalCode": "110611",
@@ -35,37 +35,37 @@
     "work": [
         {
             "name": "Asiste Ingeniería S.A.S.",
-            "position": "Desarrollador Fullstack",
+            "position": "Fullstack Developer",
             "url": "https://asisteing.com/",
             "startDate": "2025-03-20",
             "endDate": null,
-            "summary": "Desarrollo fullstack de aplicaciones web, construyendo interfaces con React y servicios de backend con PHP y Node.js, además de soluciones con Python e inteligencia artificial para automatizar procesos internos.",
+            "summary": "Fullstack development of web applications, building interfaces with React and backend services with PHP and Node.js, along with Python and AI-based solutions to automate internal processes.",
             "highlights": [
-                "Interfaces de usuario con React",
-                "Backend y APIs con PHP y Node.js",
-                "Bases de datos MySQL",
-                "Automatización con Python e IA (Web scraping y machine learning)"
+                "User interfaces with React",
+                "Backend and APIs with PHP and Node.js",
+                "MySQL databases",
+                "Python and AI automation (Web scraping and machine learning)"
             ]
         },
         {
             "name": "Papelería LJ",
-            "position": "Desarrollador Fullstack y Soporte Técnico",
+            "position": "Fullstack Developer & Technical Support",
             "startDate": "2017-03-01",
             "endDate": "2025-07-20",
-            "summary": "Desarrollo de una plataforma interna a la medida, además de mantenimiento de equipos informáticos y administración de la red.",
+            "summary": "Development of a custom internal platform, along with computer equipment maintenance and network administration.",
             "highlights": [
-                "Plataforma web a la medida",
-                "Mantenimiento y soporte de equipos",
-                "Administración de red"
+                "Custom web platform",
+                "Equipment maintenance and support",
+                "Network administration"
             ]
         },
         {
             "name": "Asiste Ingeniería S.A.S.",
-            "position": "Desarrollador Fullstack",
+            "position": "Fullstack Developer",
             "url": "https://asisteing.com/",
             "startDate": "2021-04-01",
             "endDate": "2022-11-20",
-            "summary": "Desarrollo web fullstack con PHP, React, Node.js y MySQL en distintos proyectos de la compañía.",
+            "summary": "Fullstack web development with PHP, React, Node.js, and MySQL across various company projects.",
             "highlights": [
                 "PHP",
                 "React",
@@ -75,10 +75,10 @@
         },
         {
             "name": "SIpse",
-            "position": "Desarrollador Móvil",
+            "position": "Mobile Developer",
             "startDate": "2020-01-01",
             "endDate": "2021-06-30",
-            "summary": "Desarrollo de aplicaciones móviles en Flutter, con integración de servicios web SOAP y persistencia local mediante SQFlite.",
+            "summary": "Mobile application development in Flutter, integrating SOAP web services and local persistence with SQFlite.",
             "highlights": [
                 "Flutter",
                 "SOAP",
@@ -87,20 +87,20 @@
         },
         {
             "name": "AngelNet",
-            "position": "Desarrollador Java",
+            "position": "Java Developer",
             "startDate": "2020-01-01",
             "endDate": "2020-12-31",
-            "summary": "Desarrollo de software de escritorio con Java.",
+            "summary": "Desktop software development with Java.",
             "highlights": [
                 "Java"
             ]
         },
         {
             "name": "ComWare S.A.",
-            "position": "Desarrollador de Software",
+            "position": "Software Developer",
             "startDate": "2019-01-01",
             "endDate": "2019-07-01",
-            "summary": "Desarrollo de aplicaciones de escritorio en Visual Basic con SQL Server.",
+            "summary": "Desktop application development in Visual Basic with SQL Server.",
             "highlights": [
                 "Visual Basic",
                 "SQL Server"
@@ -108,13 +108,13 @@
         },
         {
             "name": "High Tech Solutions",
-            "position": "Soporte Técnico",
+            "position": "Technical Support",
             "startDate": "2018-01-01",
             "endDate": "2018-12-31",
-            "summary": "Mantenimiento preventivo y correctivo de equipos de cómputo.",
+            "summary": "Preventive and corrective maintenance of computer equipment.",
             "highlights": [
-                "Mantenimiento de hardware",
-                "Soporte técnico"
+                "Hardware maintenance",
+                "Technical support"
             ]
         }
     ],
@@ -122,8 +122,8 @@
         {
             "institution": "UNAD · Universidad Nacional Abierta y a Distancia",
             "url": "https://estudios.unad.edu.co/plan-de-estudios-ingenieria-de-sistemas",
-            "area": "Ingeniería de Sistemas",
-            "studyType": "Pregrado",
+            "area": "Systems Engineering",
+            "studyType": "Bachelor's Degree",
             "startDate": "2023-08-21",
             "endDate": null,
             "isActive": true,
@@ -132,36 +132,36 @@
         {
             "institution": "Corporación Universitaria de Cataluña",
             "url": "https://www.unicatalunya.edu.co/",
-            "area": "Educación continua en Ciberseguridad e Inteligencia Artificial",
-            "studyType": "Diplomado y cursos complementarios",
+            "area": "Continuing Education in Cybersecurity and Artificial Intelligence",
+            "studyType": "Diploma and complementary courses",
             "startDate": "2025-01-01",
             "endDate": "2026-08-05",
             "isActive": true,
             "courses": [
-                "Diplomado Ethical Hacking con IA · Red, Blue & Purple Team (150 h)",
-                "Inteligencia Artificial Generativa (40 h)",
-                "Evaluación Financiera de Proyectos (40 h)"
+                "Ethical Hacking with AI Diploma · Red, Blue & Purple Team (150 h)",
+                "Generative Artificial Intelligence (40 h)",
+                "Financial Project Evaluation (40 h)"
             ]
         },
         {
             "institution": "Beca Colnodo · Google",
             "url": "https://www.coursera.org/professional-certificates/google-ux-design",
-            "area": "Certificado de Diseño de Experiencia de Usuario (UX) de Google",
-            "studyType": "Certificado profesional",
+            "area": "Google UX Design Certificate",
+            "studyType": "Professional Certificate",
             "startDate": "2023-01-01",
             "endDate": "2023-07-01",
             "isActive": false,
             "courses": [
-                "Investigación en UX",
-                "Prototipado en Figma",
-                "Diseño adaptable en Adobe XD"
+                "UX Research",
+                "Prototyping in Figma",
+                "Responsive Design in Adobe XD"
             ]
         },
         {
             "institution": "Talento Digital · Ministerio TIC",
             "url": "https://talentodigital.mintic.gov.co/734/w3-channel.html",
-            "area": "Machine Learning y Big Data (Coursera)",
-            "studyType": "Beca · 5 cursos",
+            "area": "Machine Learning and Big Data (Coursera)",
+            "studyType": "Scholarship · 5 courses",
             "startDate": "2020-01-01",
             "endDate": "2020-12-15",
             "isActive": false,
@@ -174,8 +174,8 @@
         {
             "institution": "SENA · Servicio Nacional de Aprendizaje",
             "url": "https://senacertificados.co/analisis-desarrollo-de-sistemas-de-informacion/",
-            "area": "Tecnología en Análisis y Desarrollo de Sistemas de Información (ADSI)",
-            "studyType": "Tecnólogo",
+            "area": "Information Systems Analysis and Development Technology (ADSI)",
+            "studyType": "Technologist",
             "startDate": "2017-01-21",
             "endDate": "2019-11-15",
             "isActive": false,
@@ -185,107 +185,107 @@
     "skills": [
         {
             "name": "JavaScript",
-            "level": "Avanzado",
+            "level": "Advanced",
             "keywords": ["Frontend", "Backend", "Fullstack"]
         },
         {
             "name": "TypeScript",
-            "level": "Intermedio",
+            "level": "Intermediate",
             "keywords": ["Frontend", "Backend"]
         },
         {
             "name": "React",
-            "level": "Avanzado",
+            "level": "Advanced",
             "keywords": ["Frontend", "UI"]
         },
         {
             "name": "Node.js",
-            "level": "Intermedio",
+            "level": "Intermediate",
             "keywords": ["Backend", "APIs"]
         },
         {
             "name": "PHP",
-            "level": "Avanzado",
+            "level": "Advanced",
             "keywords": ["Backend", "Fullstack"]
         },
         {
             "name": "Java",
-            "level": "Intermedio",
-            "keywords": ["Backend", "Escritorio"]
+            "level": "Intermediate",
+            "keywords": ["Backend", "Desktop"]
         },
         {
             "name": "Python",
-            "level": "Intermedio",
-            "keywords": ["Data", "Backend", "IA"]
+            "level": "Intermediate",
+            "keywords": ["Data", "Backend", "AI"]
         },
         {
             "name": "Flutter",
-            "level": "Intermedio",
-            "keywords": ["Móvil", "Dart"]
+            "level": "Intermediate",
+            "keywords": ["Mobile", "Dart"]
         },
         {
             "name": "HTML",
-            "level": "Avanzado",
+            "level": "Advanced",
             "keywords": ["Frontend"]
         },
         {
             "name": "CSS",
-            "level": "Avanzado",
+            "level": "Advanced",
             "keywords": ["Frontend", "Responsive"]
         },
         {
             "name": "Tailwind",
-            "level": "Avanzado",
+            "level": "Advanced",
             "keywords": ["Frontend", "CSS"]
         },
         {
             "name": "MySQL",
-            "level": "Avanzado",
-            "keywords": ["Bases de Datos", "SQL"]
+            "level": "Advanced",
+            "keywords": ["Databases", "SQL"]
         },
         {
             "name": "MongoDB",
-            "level": "Intermedio",
-            "keywords": ["Bases de Datos", "NoSQL"]
+            "level": "Intermediate",
+            "keywords": ["Databases", "NoSQL"]
         },
         {
             "name": "Git",
-            "level": "Avanzado",
-            "keywords": ["Control de versiones"]
+            "level": "Advanced",
+            "keywords": ["Version Control"]
         },
         {
             "name": "Docker",
-            "level": "Intermedio",
-            "keywords": ["DevOps", "Contenedores"]
+            "level": "Intermediate",
+            "keywords": ["DevOps", "Containers"]
         },
         {
             "name": "Machine Learning",
-            "level": "Intermedio",
-            "keywords": ["IA", "Datos"]
+            "level": "Intermediate",
+            "keywords": ["AI", "Data"]
         },
         {
-            "name": "YOLO (Detección de Objetos)",
-            "level": "Intermedio",
-            "keywords": ["Visión por Computador", "IA"]
+            "name": "YOLO (Object Detection)",
+            "level": "Intermediate",
+            "keywords": ["Computer Vision", "AI"]
         },
         {
             "name": "OpenCV",
-            "level": "Intermedio",
-            "keywords": ["Visión por Computador", "Python"]
+            "level": "Intermediate",
+            "keywords": ["Computer Vision", "Python"]
         }
     ],
     "languages": [
         {
-            "language": "Español",
-            "fluency": "Nativo"
+            "language": "Spanish",
+            "fluency": "Native"
         },
         {
-            "language": "Inglés",
-            "fluency": "Intermedio"
+            "language": "English",
+            "fluency": "Intermediate"
         },
         {
-            "language": "Francés",
-            "fluency": "Básico"
+            "language": "French",
+            "fluency": "Basic"
         }
     ],
     "interests": [],
@@ -294,8 +294,8 @@
     "awards": [],
     "certificates": [
         {
-            "name": "Registro Profesional — Copnia",
-            "issuer": "Copnia · Consejo Profesional Nacional de Ingeniería",
+            "name": "Professional License — Copnia",
+            "issuer": "Copnia · National Professional Council of Engineering",
             "certificateNumber": "093567-0809425 CNDC",
             "url": "https://tramites.copnia.gov.co/Copnia_Microsite/CertificateOfGoodStanding/WaterMarkmethod?CertificateNumber=093567-0809425%20CNDC"
         }
@@ -306,11 +306,11 @@
             "position": 1,
             "name": "Escritores",
             "isActive": true,
-            "description": "Tienda de libros virtuales diseñada con metodología Google UX.",
+            "description": "Virtual bookstore designed with Google UX methodology.",
             "highlights": [
                 "Figma",
                 "Google UX",
-                "En desarrollo"
+                "In progress"
             ],
             "preview": true,
             "preview_url": "indexProjects",
@@ -321,11 +321,11 @@
             "position": 2,
             "name": "Care & Care",
             "isActive": true,
-            "description": "Aplicación de vigilancia y cuidado vehicular.",
+            "description": "Vehicle monitoring and care application.",
             "highlights": [
                 "Figma",
                 "Google UX",
-                "En desarrollo"
+                "In progress"
             ],
             "preview": true,
             "preview_url": "indexProjects",
@@ -336,11 +336,11 @@
             "position": 3,
             "name": "Ark",
             "isActive": true,
-            "description": "Plataforma para arquitectos y futuros compradores de vivienda.",
+            "description": "Platform for architects and future home buyers.",
             "highlights": [
                 "Figma",
                 "Google UX",
-                "En desarrollo"
+                "In progress"
             ],
             "preview": true,
             "preview_url": "indexProjects",
@@ -350,7 +350,7 @@
         {
             "name": "La Velada",
             "isActive": true,
-            "description": "Proyecto para aprender el framework Astro a través de Midudev.",
+            "description": "Project to learn the Astro framework through Midudev.",
             "highlights": [
                 "Astro",
                 "Tailwind"
@@ -361,10 +361,10 @@
         {
             "name": "ShortCuts",
             "isActive": true,
-            "description": "Atajos, descripciones de componentes y guías de uso de programación.",
+            "description": "Shortcuts, component descriptions, and programming usage guides.",
             "highlights": [
-                "Multilenguaje",
-                "Diccionario y atajos"
+                "Multilanguage",
+                "Dictionary and shortcuts"
             ],
             "url": "https://github.com/innerYho/ShortCuts",
             "github": "https://github.com/innerYho/ShortCuts"
@@ -372,11 +372,11 @@
         {
             "name": "minimalist-portfolio",
             "isActive": true,
-            "description": "El código de este mismo portafolio y CV.",
+            "description": "The source code of this very portfolio and CV.",
             "highlights": [
                 "Astro",
                 "TypeScript",
-                "Portafolio"
+                "Portfolio"
             ],
             "url": "https://github.com/innerYho/minimalist-portfolio",
             "github": "https://github.com/innerYho/minimalist-portfolio"

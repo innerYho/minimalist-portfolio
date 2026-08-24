@@ -1,4 +1,7 @@
 ---
+// Misma composición que src/pages/index.astro — cada sección detecta el
+// locale vía Astro.currentLocale (esta ruta vive bajo /en) y elige entre
+// cv.json / cv.en.json internamente, así que no hace falta pasarle props.
 import Layout from "@/layouts/Layout.astro";
 import About from "@/components/sections/About.astro";
 import Education from "@/components/sections/Education.astro";
@@ -12,7 +15,7 @@ import LocaleToggle from "@/components/LocaleToggle.astro";
 import KeyboardManager from "@/components/KeyboardManager.astro";
 ---
 
-<Layout title="Yhoiner Morales · Desarrollador Fullstack">
+<Layout title="Yhoiner Morales · Fullstack Developer">
 	<ThemeToggle />
 	<LocaleToggle />
 	<main>

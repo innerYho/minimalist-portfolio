@@ -1,11 +1,16 @@
 ---
-import { basics } from "@cv";
+import { getCv } from "@/i18n/getCv";
+import { getLocale, ui } from "@/i18n/ui";
 import Section from "@/components/Section.astro";
 import Mail from "@/icons/Mail.astro";
 import GitHub from "@/icons/GitHub.astro";
 import LinkedIn from "@/icons/LinkedIn.astro";
 import X from "@/icons/X.astro";
 import WorldMap from "@/icons/WorldMap.astro";
+
+const locale = getLocale(Astro.currentLocale);
+const t = ui[locale];
+const { basics } = getCv(locale);
 
 const { name, label, image, email, location, profiles, phone } = basics;
 const { city, region } = location;
@@ -25,7 +30,7 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ");
 	<div class="hero">
 		<div class="info">
 			<div class="badge no-print">
-				<span class="pulse"></span> Disponible para proyectos remotos
+				<span class="pulse"></span> {t.hero.badge}
 			</div>
 			<h1>{name}</h1>
 			<h2>{label}</h2>
@@ -39,7 +44,7 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ");
 			<footer class="no-print">
 				<a class="btn btn-primary" href={`mailto:${email}`}>
 					<Mail />
-					Contáctame
+					{t.hero.contact}
 				</a>
 				{
 					profiles.map(({ network, url }) => {
@@ -48,7 +53,7 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ");
 							<a
 								class="btn btn-icon"
 								href={url}
-								title={`Perfil de ${name} en ${network}`}
+								title={t.hero.profileTitle(name, network)}
 								target="_blank"
 								rel="noopener noreferrer"
 							>
@@ -62,7 +67,7 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ");
 
 		<figure>
 			<div class="ring"></div>
-			<img src={image} alt={`Foto de ${name}`} />
+			<img src={image} alt={t.hero.photoAlt(name)} />
 		</figure>
 	</div>
 </Section>
@@ -213,7 +218,8 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ");
 		position: relative;
 		aspect-ratio: 1/1;
 		object-fit: cover;
-		width: 140px;
+		object-position: center calc(50% + 12px);
+		width: 132px;
 		border-radius: 18px;
 		border: 2px solid var(--bg-2);
 	}

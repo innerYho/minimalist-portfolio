@@ -1,9 +1,14 @@
 ---
 import Section from "@/components/Section.astro";
-import { work } from "@cv";
+import { getCv } from "@/i18n/getCv";
+import { getLocale, ui } from "@/i18n/ui";
+
+const locale = getLocale(Astro.currentLocale);
+const t = ui[locale];
+const { work } = getCv(locale);
 ---
 
-<Section title="Experiencia">
+<Section title={t.sectionTitles.experience}>
 	<ol class="timeline">
 		{
 			work.map(
@@ -14,7 +19,7 @@ import { work } from "@cv";
 					const endYear =
 						endDate !== null && endDate !== undefined
 							? new Date(endDate).getFullYear()
-							: "Actualidad";
+							: t.common.present;
 					const years = [startYear, endYear]
 						.filter((v) => v !== "")
 						.join(" — ");

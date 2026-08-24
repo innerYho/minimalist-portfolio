@@ -1,10 +1,15 @@
 ---
-import { basics } from "@cv";
+import { getCv } from "@/i18n/getCv";
+import { getLocale, ui } from "@/i18n/ui";
 
 interface Props {
 	title: string;
 	description?: string;
 }
+
+const locale = getLocale(Astro.currentLocale);
+const t = ui[locale];
+const { basics } = getCv(locale);
 
 const { name, label, summary, image, url, profiles, location } = basics;
 const {
@@ -35,7 +40,7 @@ const jsonLd = {
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={locale}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -46,15 +51,12 @@ const jsonLd = {
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<meta name="author" content={name} />
-		<meta
-			name="keywords"
-			content="Yhoiner Morales, Desarrollador Fullstack, React, PHP, Node.js, Flutter, Java, Bogotá, Colombia, Desarrollador de Software"
-		/>
+		<meta name="keywords" content={t.meta.keywords} />
 		<meta name="theme-color" content="#0a0a0f" />
 
 		<!-- Open Graph -->
 		<meta property="og:type" content="website" />
-		<meta property="og:locale" content="es_CO" />
+		<meta property="og:locale" content={t.meta.ogLocale} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:url" content={canonical} />
@@ -279,6 +281,11 @@ const jsonLd = {
 		}
 		.print {
 			display: block;
+		}
+		.reveal {
+			opacity: 1 !important;
+			transform: none !important;
+			transition: none !important;
 		}
 	}
 </style>

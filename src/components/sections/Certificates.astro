@@ -1,18 +1,23 @@
 ---
 import Section from "@/components/Section.astro";
-import { certificates } from "@cv";
+import { getCv } from "@/i18n/getCv";
+import { getLocale, ui } from "@/i18n/ui";
+
+const locale = getLocale(Astro.currentLocale);
+const t = ui[locale];
+const { certificates } = getCv(locale);
 
 const hasCerts = certificates && certificates.length > 0;
 ---
 
 {
 	hasCerts && (
-		<Section title="Certificaciones">
+		<Section title={t.sectionTitles.certificates}>
 			<ul class="grid">
 				{certificates.map((cert: any) => (
 					<li>
 						<article>
-							<div class="verified" title="Credencial verificable">
+							<div class="verified" title={t.certificates.verifiable}>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									width="20"
@@ -32,7 +37,7 @@ const hasCerts = certificates && certificates.length > 0;
 								<h3>{cert.name}</h3>
 								<p class="issuer">{cert.issuer}</p>
 								{cert.certificateNumber && (
-									<p class="num">N.º {cert.certificateNumber}</p>
+									<p class="num">{t.certificates.number} {cert.certificateNumber}</p>
 								)}
 								{cert.url && (
 									<a
@@ -41,7 +46,7 @@ const hasCerts = certificates && certificates.length > 0;
 										target="_blank"
 										rel="noopener noreferrer"
 									>
-										Verificar credencial →
+										{t.certificates.verify}
 									</a>
 								)}
 							</div>
