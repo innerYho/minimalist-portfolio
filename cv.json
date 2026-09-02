@@ -48,18 +48,6 @@
             ]
         },
         {
-            "name": "Papelería LJ",
-            "position": "Desarrollador Fullstack y Soporte Técnico",
-            "startDate": "2017-03-01",
-            "endDate": "2025-07-20",
-            "summary": "Desarrollo de una plataforma interna a la medida, además de mantenimiento de equipos informáticos y administración de la red.",
-            "highlights": [
-                "Plataforma web a la medida",
-                "Mantenimiento y soporte de equipos",
-                "Administración de red"
-            ]
-        },
-        {
             "name": "Asiste Ingeniería S.A.S.",
             "position": "Desarrollador Fullstack",
             "url": "https://asisteing.com/",
@@ -74,6 +62,18 @@
             ]
         },
         {
+            "name": "Papelería LJ",
+            "position": "Desarrollador Fullstack y Soporte Técnico (trabajo secundario)",
+            "startDate": "2020-12-20",
+            "endDate": "2025-07-20",
+            "summary": "Trabajo secundario en paralelo a los demás roles: desarrollo de una plataforma interna a la medida, además de mantenimiento de equipos informáticos y administración de la red.",
+            "highlights": [
+                "Plataforma web a la medida",
+                "Mantenimiento y soporte de equipos",
+                "Administración de red"
+            ]
+        },
+        {
             "name": "SIpse",
             "position": "Desarrollador Móvil",
             "startDate": "2020-01-01",
@@ -83,16 +83,6 @@
                 "Flutter",
                 "SOAP",
                 "SQFlite"
-            ]
-        },
-        {
-            "name": "AngelNet",
-            "position": "Desarrollador Java",
-            "startDate": "2020-01-01",
-            "endDate": "2020-12-31",
-            "summary": "Desarrollo de software de escritorio con Java.",
-            "highlights": [
-                "Java"
             ]
         },
         {
@@ -115,6 +105,16 @@
             "highlights": [
                 "Mantenimiento de hardware",
                 "Soporte técnico"
+            ]
+        },
+        {
+            "name": "AngelNet",
+            "position": "Desarrollador Java (trabajo secundario)",
+            "startDate": "2017-03-01",
+            "endDate": "2020-12-20",
+            "summary": "Trabajo secundario en paralelo a los demás roles: implementación de software de escritorio sencillo con Java.",
+            "highlights": [
+                "Java"
             ]
         }
     ],
@@ -346,6 +346,16 @@
             "preview_url": "indexProjects",
             "process_url": "https://online.fliphtml5.com/dbefm/gjjw/",
             "url": "https://github.com/innerYho/"
+        },
+        {
+            "name": "Escáner Huecos",
+            "isActive": true,
+            "description": "Sistema de detección de baches en vías con YOLOv8n, entrenado con un dataset propio de 1.636 imágenes reales, pensado para funcionar con la cámara de un smartphone en bicicleta (0.65 mAP@0.65, en iteración con más datos). Proyecto privado.",
+            "highlights": [
+                "YOLOv8n",
+                "Visión por Computador",
+                "Dataset propio"
+            ]
         },
         {
             "name": "La Velada",

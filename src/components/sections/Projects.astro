@@ -19,14 +19,18 @@ const { projects } = getCv(locale);
 							<article>
 								<header>
 									<h3>
-										<a
-											href={url}
-											target="_blank"
-											rel="noopener noreferrer"
-											title={t.projects.viewProject(name)}
-										>
-											{name}
-										</a>
+										{url ? (
+											<a
+												href={url}
+												target="_blank"
+												rel="noopener noreferrer"
+												title={t.projects.viewProject(name)}
+											>
+												{name}
+											</a>
+										) : (
+											<span>{name}</span>
+										)}
 										{isActive && (
 											<span class="active" title={t.common.activeOngoing} />
 										)}
