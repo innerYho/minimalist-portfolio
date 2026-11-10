@@ -303,6 +303,33 @@
     "publications": [],
     "projects": [
         {
+            "name": "minimalist-portfolio",
+            "isActive": true,
+            "featured": true,
+            "live_url": "https://minimalist-portfolio-jet-one.vercel.app/",
+            "description": "El código de este mismo portafolio y CV.",
+            "highlights": [
+                "Astro",
+                "TypeScript",
+                "Portafolio"
+            ],
+            "url": "https://github.com/innerYho/minimalist-portfolio",
+            "github": "https://github.com/innerYho/minimalist-portfolio"
+        },
+        {
+            "name": "CodeVault",
+            "isActive": true,
+            "description": "Biblioteca de módulos reutilizables de front y back, documentada como un framework: cada módulo trae README, pruebas y demo, y se instala con un CLI. Incluye login con 2FA, alertas por Telegram verificadas y guías. El back está en CodeVaultBack.",
+            "highlights": [
+                "React",
+                "Hono",
+                "PostgreSQL",
+                "TypeScript"
+            ],
+            "url": "https://github.com/innerYho/CodeVaultFront",
+            "github": "https://github.com/innerYho/CodeVaultFront"
+        },
+        {
             "position": 1,
             "name": "Escritores",
             "isActive": true,
@@ -378,18 +405,6 @@
             ],
             "url": "https://github.com/innerYho/ShortCuts",
             "github": "https://github.com/innerYho/ShortCuts"
-        },
-        {
-            "name": "minimalist-portfolio",
-            "isActive": true,
-            "description": "El código de este mismo portafolio y CV.",
-            "highlights": [
-                "Astro",
-                "TypeScript",
-                "Portafolio"
-            ],
-            "url": "https://github.com/innerYho/minimalist-portfolio",
-            "github": "https://github.com/innerYho/minimalist-portfolio"
         }
     ]
 }

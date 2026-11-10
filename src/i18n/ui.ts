@@ -37,6 +37,10 @@ export const ui = {
 			codeOf: (name: string) => `Código de ${name}`,
 			code: "Código",
 		},
+		featured: {
+			label: "Proyecto destacado",
+			viewLive: "Ver en vivo ↗",
+		},
 		keyboard: {
 			visit: (network: string) => `Visitar ${network}`,
 			press: "Pulsar",
@@ -93,6 +97,10 @@ export const ui = {
 			viewProcess: "View process →",
 			codeOf: (name: string) => `${name} code`,
 			code: "Code",
+		},
+		featured: {
+			label: "Featured project",
+			viewLive: "View live ↗",
 		},
 		keyboard: {
 			visit: (network: string) => `Visit ${network}`,

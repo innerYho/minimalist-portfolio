@@ -1,0 +1,171 @@
+---
+// Proyecto(s) anclado(s) arriba de "Acerca de mí": cualquier proyecto de
+// cv.json / cv.en.json con "featured": true. "live_url" es el sitio
+// desplegado (Vercel) y "github" el repositorio.
+import { getCv } from "@/i18n/getCv";
+import { getLocale, ui } from "@/i18n/ui";
+import GitHub from "@/icons/GitHub.astro";
+
+const locale = getLocale(Astro.currentLocale);
+const t = ui[locale];
+const featured = getCv(locale).projects.filter((p) => p.featured);
+---
+
+{
+	featured.length > 0 && (
+		<section class="reveal no-print" aria-label={t.featured.label}>
+			{featured.map(({ name, description, live_url, github }) => (
+				<article>
+					<div class="text">
+						<span class="label">
+							<span class="dot" />
+							{t.featured.label}
+						</span>
+						<p>
+							{live_url ? (
+								<a
+									class="name"
+									href={live_url}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									{name}
+								</a>
+							) : (
+								<strong>{name}</strong>
+							)}{" "}
+							— {description}
+						</p>
+					</div>
+					<div class="actions">
+						{live_url && (
+							<a
+								class="btn primary"
+								href={live_url}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								{t.featured.viewLive}
+							</a>
+						)}
+						{github && (
+							<a
+								class="btn"
+								href={github}
+								target="_blank"
+								rel="noopener noreferrer"
+								title={t.projects.codeOf(name)}
+							>
+								<GitHub />
+								{t.projects.code}
+							</a>
+						)}
+					</div>
+				</article>
+			))}
+		</section>
+	)
+}
+
+<style>
+	section {
+		max-width: var(--maxw);
+		margin: -1.5rem auto 3.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+	}
+	article {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: 0.8rem 1rem;
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		background: var(--surface);
+		transition:
+			border-color 0.25s ease,
+			background 0.25s ease;
+	}
+	article:hover {
+		border-color: var(--border-strong);
+		background: var(--surface-2);
+	}
+	.text {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+		min-width: 0;
+	}
+	.label {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		font-size: 0.68rem;
+		font-weight: 600;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: var(--text-muted);
+	}
+	.dot {
+		width: 7px;
+		height: 7px;
+		border-radius: 50%;
+		background: var(--accent-grad);
+		box-shadow: 0 0 10px var(--glow);
+		flex-shrink: 0;
+	}
+	p {
+		font-size: 0.85rem;
+		line-height: 1.5;
+		color: var(--text-muted);
+	}
+	strong,
+	.name {
+		font-weight: 700;
+		color: var(--text);
+	}
+	.name {
+		transition: color 0.2s ease;
+	}
+	.name:hover {
+		color: var(--accent);
+	}
+	.actions {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		flex-shrink: 0;
+	}
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		padding: 0.35rem 0.75rem;
+		font-size: 0.78rem;
+		font-weight: 600;
+		color: var(--text-muted);
+		border: 1px solid var(--border);
+		border-radius: 999px;
+		background: var(--surface-2);
+		white-space: nowrap;
+		transition:
+			color 0.2s ease,
+			border-color 0.2s ease;
+	}
+	.btn:hover {
+		color: var(--text);
+		border-color: var(--border-strong);
+	}
+	.btn.primary {
+		color: var(--accent);
+	}
+
+	@media (max-width: 640px) {
+		article {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+</style>

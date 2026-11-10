@@ -7,6 +7,7 @@ import About from "@/components/sections/About.astro";
 import Education from "@/components/sections/Education.astro";
 import Certificates from "@/components/sections/Certificates.astro";
 import Experience from "@/components/sections/Experience.astro";
+import Featured from "@/components/sections/Featured.astro";
 import Hero from "@/components/sections/Hero.astro";
 import Projects from "@/components/sections/Projects.astro";
 import Skills from "@/components/sections/Skills.astro";
@@ -28,6 +29,7 @@ const SHOW_COVER_LETTER = false;
 	<main>
 		{SHOW_COVER_LETTER && <CoverLetter />}
 		<Hero />
+		<Featured />
 		<About />
 		<Experience />
 		<Education />
